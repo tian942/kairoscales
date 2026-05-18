@@ -256,7 +256,7 @@ function HowItWorksSection() {
               <p className="text-base leading-relaxed mb-6" style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'DM Sans',sans-serif" }}>
                 We don't run ads. We build weapons. Your entire revenue machine — funnel, copy, VSL, emails, automations — engineered from scratch in 14 days. We replicate the precision of an organic sales process through paid advertising.
               </p>
-              <button onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })} className="btn-outline-lime" style={{ fontSize: "0.9rem" }}>View Our Strategies →</button>
+              <a href="/strategies" className="btn-outline-lime" style={{ fontSize: "0.9rem" }}>View Our Strategies →</a>
             </div>
 
             <div className="reveal rounded-2xl p-8 relative overflow-hidden" style={{ background: "#b8ff00", transitionDelay: "100ms" }}>
@@ -702,13 +702,17 @@ function Footer() {
               >kairoscales.com</a>
             </div>
             <div className="flex gap-3">
-              {["FB", "IG", "X", "YT"].map((s) => (
-                <a key={s} href={CALENDLY} target="_blank" rel="noopener noreferrer"
+              {[
+                { label: "IN", url: "https://www.linkedin.com/in/tian-marsel-219908385/" },
+                { label: "IG", url: "https://www.instagram.com/tian.marsel/" },
+                { label: "X",  url: "https://x.com/tianmarsi" },
+              ].map((s) => (
+                <a key={s.label} href={s.url} target="_blank" rel="noopener noreferrer"
                   className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold transition-all duration-200"
                   style={{ background: "rgba(184,255,0,0.1)", border: "1px solid rgba(184,255,0,0.2)", color: "rgba(255,255,255,0.55)", fontFamily: "'Space Mono',monospace" }}
                   onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(184,255,0,0.2)"; e.currentTarget.style.color = "#b8ff00"; }}
                   onMouseLeave={(e) => { e.currentTarget.style.background = "rgba(184,255,0,0.1)"; e.currentTarget.style.color = "rgba(255,255,255,0.55)"; }}
-                >{s}</a>
+                >{s.label}</a>
               ))}
             </div>
           </div>
