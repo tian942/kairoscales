@@ -7,7 +7,7 @@
 import { useEffect } from "react";
 
 const LOGO = "/images/logo.png";
-const ROCKET_BG = "/manus-storage/rocket_ninja_ddddfa6d.png";
+const ROCKET_BG = "/manus-storage/cartoon_rocket2_28867f4d.png";
 
 const MAIN_VSL = "tpsxzf817l";
 const FAQ_VIDEOS = [
@@ -225,9 +225,12 @@ export default function Confirm() {
         </section>
 
         {/* Wave: white → dark — lives INSIDE the white div so background matches */}
-        <div style={{ lineHeight: 0, marginBottom: -1 }}>
-          <svg viewBox="0 0 1440 90" preserveAspectRatio="none" style={{ width: "100%", height: 70, display: "block" }}>
-            <path d="M0,45 C360,0 720,90 1080,45 C1260,22 1380,60 1440,45 L1440,0 L0,0 Z" fill="#060d00" />
+        <div style={{ lineHeight: 0, fontSize: 0, overflow: "hidden" }}>
+          <svg viewBox="0 0 1440 80" preserveAspectRatio="none" style={{ width: "100%", height: 80, display: "block" }}>
+            {/* Full dark fill from top, wave cuts into white at bottom */}
+            <path d="M0,0 L1440,0 L1440,80 L0,80 Z" fill="#060d00" />
+            {/* White wave shape that peeks up from the bottom */}
+            <path d="M0,40 C240,80 480,10 720,40 C960,70 1200,20 1440,40 L1440,80 L0,80 Z" fill="#ffffff" />
           </svg>
         </div>
       </div>
