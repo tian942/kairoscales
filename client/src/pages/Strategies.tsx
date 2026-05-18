@@ -8,8 +8,8 @@ import { useEffect } from "react";
 import { Link } from "wouter";
 
 const CALENDLY = "https://calendly.com/kairoscales/30min";
-const LOGO = "/images/kairo_logo.png";
-const HERO_BG = "/images/cartoon_hero2.png";
+const LOGO = "/images/logo.png";
+const HERO_BG = "/images/hero.jpg";
 
 // ─── Star Field (same as Home) ────────────────────────────────────────────────
 function StarField() {
@@ -86,11 +86,11 @@ export default function Strategies() {
           backgroundSize: "cover",
           backgroundPosition: "center top",
           backgroundRepeat: "no-repeat",
-          opacity: 0.18,
+          opacity: 0.45,
           pointerEvents: "none",
           zIndex: 0,
-          maskImage: "linear-gradient(to left, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%)",
-          WebkitMaskImage: "linear-gradient(to left, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%)",
+          maskImage: "linear-gradient(to left, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 100%)",
+          WebkitMaskImage: "linear-gradient(to left, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 100%)",
         }}
       />
       <StarField />
