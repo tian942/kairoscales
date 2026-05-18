@@ -173,7 +173,7 @@ function HeroSection() {
         <div className="absolute bottom-0 left-0 right-0 h-48" style={{ background: "linear-gradient(to bottom, transparent, #060d00)" }} />
       </div>
 
-      <StarField count={50} />
+      <StarField />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16">
         {/* Top copy */}
@@ -235,7 +235,7 @@ function HowItWorksSection() {
   return (
     <>
       <section id="how-it-works" className="relative py-24 overflow-hidden" style={{ background: "#060d00" }}>
-        <StarField count={35} />
+        <StarField />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-14 reveal">
             <p className="font-mono-accent text-xs mb-3" style={{ color: "#b8ff00", letterSpacing: "0.2em" }}>INTELLIGENCE BRIEFING</p>
@@ -324,7 +324,7 @@ function WhyKairoSection() {
   return (
     <>
       <section id="why-kairo" className="relative py-24 overflow-hidden" style={{ background: "#060d00" }}>
-        <StarField count={45} />
+        <StarField />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="reveal">
@@ -482,7 +482,7 @@ function OperatorSection() {
   return (
     <>
       <section className="relative py-24 overflow-hidden" style={{ background: "#060d00" }}>
-        <StarField count={40} />
+        <StarField />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="reveal flex justify-center lg:justify-start">
@@ -548,7 +548,7 @@ function CtaSection() {
 function Footer() {
   return (
     <footer className="relative overflow-hidden" style={{ background: "#030800" }}>
-      <StarField count={40} />
+      <StarField />
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div>
