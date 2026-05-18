@@ -7,7 +7,45 @@
 import { useEffect } from "react";
 
 const LOGO = "/images/logo.png";
-const ROCKET_BG = "/manus-storage/cartoon_rocket2_nobg_f1305282.png";
+const ROCKET_BG = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663164421367/zUKWFxsjXLjesrrc.png";
+
+function Bubbles() {
+  const bubbles = Array.from({ length: 12 }, (_, i) => ({
+    id: i,
+    size: 8 + Math.random() * 18,
+    left: 5 + Math.random() * 90,
+    delay: Math.random() * 8,
+    duration: 8 + Math.random() * 10,
+  }));
+  return (
+    <div aria-hidden="true" style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none", zIndex: 1 }}>
+      <style>{`
+        @keyframes rise {
+          0%   { transform: translateY(100vh) scale(0.8); opacity: 0; }
+          10%  { opacity: 0.6; }
+          90%  { opacity: 0.3; }
+          100% { transform: translateY(-120px) scale(1.1); opacity: 0; }
+        }
+      `}</style>
+      {bubbles.map(b => (
+        <div
+          key={b.id}
+          style={{
+            position: "absolute",
+            bottom: -60,
+            left: `${b.left}%`,
+            width: b.size,
+            height: b.size,
+            borderRadius: "50%",
+            background: "rgba(184,255,0,0.18)",
+            border: "1px solid rgba(184,255,0,0.35)",
+            animation: `rise ${b.duration}s ${b.delay}s infinite linear`,
+          }}
+        />
+      ))}
+    </div>
+  );
+}
 
 const MAIN_VSL = "tpsxzf817l";
 const FAQ_VIDEOS = [
@@ -94,6 +132,7 @@ export default function Confirm() {
       ══════════════════════════════════════════════════════════════════════ */}
       <div style={{ background: "#030800", position: "relative", overflow: "hidden" }}>
         <StarField />
+        <Bubbles />
 
 
 
