@@ -12,15 +12,15 @@ import { useEffect } from "react";
 const CALENDLY = "https://calendly.com/kairoscales/30min";
 
 const IMAGES = {
-  hero:      "/manus-storage/cartoon_hero2_6d7a8072.png",
-  feature:   "/manus-storage/cartoon_feature2_fc6f9ad7.png",
-  funnel:    "/manus-storage/cartoon_funnel2_a057336e.png",
-  ads:       "/manus-storage/cartoon_ads2_071a5d20.png",
-  vsl:       "/manus-storage/cartoon_vsl2_79dc5bd5.png",
-  emails:    "/manus-storage/cartoon_emails2_ff9ae304.png",
-  rocket:    "/manus-storage/cartoon_rocket2_11421383.png",
-  logo:      "/manus-storage/kairo_logo_b9b1b50c.png",
-  dashboard: "/manus-storage/dashboard_result_33e7faae.png",
+  hero:      "/images/hero.jpg",
+  feature:   "/images/feature.jpg",
+  funnel:    "/images/funnel.jpg",
+  ads:       "/images/ads.jpg",
+  vsl:       "/images/vsl.jpg",
+  emails:    "/images/emails.jpg",
+  rocket:    "/images/rocket.jpg",
+  logo:      "/images/logo.png",
+  dashboard: "/images/dashboard.jpg",
 };
 
 function useScrollReveal() {
