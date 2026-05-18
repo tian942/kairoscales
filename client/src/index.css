@@ -339,11 +339,175 @@
 @media (prefers-reduced-motion: reduce) {
   .animate-float,
   .animate-float-slow,
-  .animate-pulse-glow {
+  .animate-pulse-glow,
+  .stars-layer-1,
+  .stars-layer-2,
+  .stars-layer-3 {
     animation: none;
   }
   .reveal {
     opacity: 1;
     transform: none;
   }
+}
+
+/* ─── CSS-only moving star field ─────────────────────────────────────────────
+ * Three layers of box-shadow dots, each moving at different speeds.
+ * Pure CSS transform (GPU-composited) — zero JS, zero images, zero load cost.
+ * ─────────────────────────────────────────────────────────────────────────── */
+
+@keyframes stars-drift-1 {
+  from { transform: translateY(0px); }
+  to   { transform: translateY(-2000px); }
+}
+@keyframes stars-drift-2 {
+  from { transform: translateY(0px); }
+  to   { transform: translateY(-2000px); }
+}
+@keyframes stars-drift-3 {
+  from { transform: translateY(0px); }
+  to   { transform: translateY(-2000px); }
+}
+
+.stars-layer-1,
+.stars-layer-2,
+.stars-layer-3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* Small slow stars — white, 1px */
+.stars-layer-1 {
+  background: transparent;
+  box-shadow:
+    120px 200px 0 rgba(255,255,255,0.7),
+    340px 80px 0 rgba(255,255,255,0.5),
+    560px 320px 0 rgba(255,255,255,0.6),
+    780px 150px 0 rgba(255,255,255,0.4),
+    900px 420px 0 rgba(255,255,255,0.7),
+    1050px 60px 0 rgba(255,255,255,0.5),
+    1200px 280px 0 rgba(255,255,255,0.6),
+    1380px 190px 0 rgba(255,255,255,0.4),
+    200px 500px 0 rgba(255,255,255,0.5),
+    450px 680px 0 rgba(255,255,255,0.7),
+    670px 740px 0 rgba(255,255,255,0.4),
+    820px 590px 0 rgba(255,255,255,0.6),
+    1100px 650px 0 rgba(255,255,255,0.5),
+    1300px 720px 0 rgba(255,255,255,0.7),
+    80px 900px 0 rgba(255,255,255,0.4),
+    310px 980px 0 rgba(255,255,255,0.6),
+    600px 860px 0 rgba(255,255,255,0.5),
+    950px 920px 0 rgba(255,255,255,0.7),
+    1180px 840px 0 rgba(255,255,255,0.4),
+    1400px 960px 0 rgba(255,255,255,0.6),
+    60px 1100px 0 rgba(255,255,255,0.5),
+    280px 1200px 0 rgba(255,255,255,0.7),
+    520px 1150px 0 rgba(255,255,255,0.4),
+    750px 1080px 0 rgba(255,255,255,0.6),
+    1000px 1180px 0 rgba(255,255,255,0.5),
+    1250px 1120px 0 rgba(255,255,255,0.7),
+    160px 1350px 0 rgba(255,255,255,0.4),
+    420px 1400px 0 rgba(255,255,255,0.6),
+    700px 1320px 0 rgba(255,255,255,0.5),
+    1050px 1380px 0 rgba(255,255,255,0.7),
+    1350px 1280px 0 rgba(255,255,255,0.4),
+    240px 1600px 0 rgba(255,255,255,0.6),
+    490px 1700px 0 rgba(255,255,255,0.5),
+    800px 1550px 0 rgba(255,255,255,0.7),
+    1100px 1650px 0 rgba(255,255,255,0.4),
+    1380px 1500px 0 rgba(255,255,255,0.6),
+    /* lime accent stars */
+    370px 440px 0 rgba(184,255,0,0.5),
+    890px 330px 0 rgba(184,255,0,0.4),
+    1160px 510px 0 rgba(184,255,0,0.5),
+    580px 1050px 0 rgba(184,255,0,0.4),
+    1020px 780px 0 rgba(184,255,0,0.5);
+  animation: stars-drift-1 120s linear infinite;
+  /* Duplicate layer offset so loop is seamless */
+  after-content: '';
+}
+.stars-layer-1::after {
+  content: '';
+  position: absolute;
+  top: 2000px;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  border-radius: 50%;
+  box-shadow: inherit;
+}
+
+/* Medium faster stars — slightly larger, 2px via blur */
+.stars-layer-2 {
+  background: transparent;
+  box-shadow:
+    190px 130px 0 1px rgba(255,255,255,0.5),
+    430px 260px 0 1px rgba(255,255,255,0.4),
+    710px 90px 0 1px rgba(255,255,255,0.6),
+    960px 350px 0 1px rgba(255,255,255,0.4),
+    1220px 180px 0 1px rgba(255,255,255,0.5),
+    150px 480px 0 1px rgba(255,255,255,0.6),
+    500px 560px 0 1px rgba(255,255,255,0.4),
+    840px 620px 0 1px rgba(255,255,255,0.5),
+    1140px 490px 0 1px rgba(255,255,255,0.6),
+    270px 780px 0 1px rgba(255,255,255,0.4),
+    620px 850px 0 1px rgba(255,255,255,0.5),
+    1010px 910px 0 1px rgba(255,255,255,0.6),
+    1310px 760px 0 1px rgba(255,255,255,0.4),
+    90px 1050px 0 1px rgba(255,255,255,0.5),
+    380px 1120px 0 1px rgba(255,255,255,0.6),
+    730px 1200px 0 1px rgba(255,255,255,0.4),
+    1080px 1080px 0 1px rgba(255,255,255,0.5),
+    1360px 1160px 0 1px rgba(255,255,255,0.6),
+    220px 1380px 0 1px rgba(255,255,255,0.4),
+    560px 1450px 0 1px rgba(255,255,255,0.5),
+    /* lime */
+    660px 200px 0 1px rgba(184,255,0,0.45),
+    1180px 700px 0 1px rgba(184,255,0,0.4),
+    340px 1300px 0 1px rgba(184,255,0,0.45);
+  animation: stars-drift-2 80s linear infinite;
+}
+.stars-layer-2::after {
+  content: '';
+  position: absolute;
+  top: 2000px;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  border-radius: 50%;
+  box-shadow: inherit;
+}
+
+/* Large slow stars — 2px, brightest */
+.stars-layer-3 {
+  background: transparent;
+  box-shadow:
+    250px 170px 0 2px rgba(255,255,255,0.6),
+    680px 400px 0 2px rgba(255,255,255,0.5),
+    1050px 220px 0 2px rgba(255,255,255,0.6),
+    400px 700px 0 2px rgba(255,255,255,0.5),
+    900px 800px 0 2px rgba(255,255,255,0.6),
+    150px 1100px 0 2px rgba(255,255,255,0.5),
+    750px 1300px 0 2px rgba(255,255,255,0.6),
+    1250px 1000px 0 2px rgba(255,255,255,0.5),
+    /* lime bright */
+    500px 500px 0 2px rgba(184,255,0,0.6),
+    1100px 1200px 0 2px rgba(184,255,0,0.5);
+  animation: stars-drift-3 200s linear infinite;
+}
+.stars-layer-3::after {
+  content: '';
+  position: absolute;
+  top: 2000px;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  border-radius: 50%;
+  box-shadow: inherit;
 }

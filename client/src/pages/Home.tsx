@@ -89,27 +89,12 @@ function WaveUp({ fromWhite = true }: { fromWhite?: boolean }) {
 
 // ─── Star Field ───────────────────────────────────────────────────────────────
 
-function StarField({ count = 50 }: { count?: number }) {
-  const stars = Array.from({ length: count }, (_, i) => ({
-    id: i,
-    x: Math.random() * 100, y: Math.random() * 100,
-    size: Math.random() * 2 + 0.5,
-    opacity: Math.random() * 0.6 + 0.2,
-    lime: Math.random() > 0.88,
-    delay: Math.random() * 4,
-  }));
+function StarField() {
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {stars.map((s) => (
-        <div key={s.id} className="absolute rounded-full" style={{
-          left: `${s.x}%`, top: `${s.y}%`,
-          width: s.size, height: s.size,
-          backgroundColor: s.lime ? "#b8ff00" : "#fff",
-          opacity: s.opacity,
-          animation: `twinkle ${2.5 + s.delay}s ease-in-out infinite`,
-          animationDelay: `${s.delay}s`,
-        }} />
-      ))}
+    <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ zIndex: 0 }}>
+      <div className="stars-layer-1" />
+      <div className="stars-layer-2" />
+      <div className="stars-layer-3" />
     </div>
   );
 }
