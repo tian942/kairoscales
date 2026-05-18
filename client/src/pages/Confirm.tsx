@@ -100,24 +100,45 @@ function WistiaEmbed({ mediaId, aspect = 1.5384615384615385 }: { mediaId: string
   );
 }
 
+function loadWistiaScript(id: string) {
+  if (!document.querySelector(`script[src="https://fast.wistia.com/embed/${id}.js"]`)) {
+    const s = document.createElement("script");
+    s.src = `https://fast.wistia.com/embed/${id}.js`;
+    s.async = true;
+    s.type = "module";
+    document.head.appendChild(s);
+  }
+}
+
 export default function Confirm() {
   useEffect(() => {
     window.scrollTo(0, 0);
+    // Load Wistia player core
     if (!document.querySelector('script[src="https://fast.wistia.com/player.js"]')) {
       const s = document.createElement("script");
       s.src = "https://fast.wistia.com/player.js";
       s.async = true;
       document.head.appendChild(s);
     }
-    [MAIN_VSL, ...FAQ_VIDEOS.map(v => v.id)].forEach(id => {
-      if (!document.querySelector(`script[src="https://fast.wistia.com/embed/${id}.js"]`)) {
-        const s = document.createElement("script");
-        s.src = `https://fast.wistia.com/embed/${id}.js`;
-        s.async = true;
-        s.type = "module";
-        document.head.appendChild(s);
-      }
-    });
+    // Load main VSL immediately
+    loadWistiaScript(MAIN_VSL);
+    // Load FAQ video scripts lazily when FAQ section scrolls into view
+    const faqSection = document.getElementById("faq-section");
+    if (faqSection) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting) {
+            FAQ_VIDEOS.forEach(v => loadWistiaScript(v.id));
+            observer.disconnect();
+          }
+        },
+        { rootMargin: "200px" }
+      );
+      observer.observe(faqSection);
+      return () => observer.disconnect();
+    } else {
+      FAQ_VIDEOS.forEach(v => loadWistiaScript(v.id));
+    }
   }, []);
 
   return (
@@ -152,11 +173,13 @@ export default function Confirm() {
 
 
 
-        {/* Rocket — absolute background on right */}
+        {/* Rocket — hidden on mobile for performance */}
         <img
           src={ROCKET_BG}
           alt=""
           aria-hidden="true"
+          loading="lazy"
+          className="rocket-bg-img"
           style={{
             position: "absolute",
             right: "-2%",
@@ -169,6 +192,7 @@ export default function Confirm() {
             filter: "drop-shadow(0 0 40px rgba(184,255,0,0.1))",
           }}
         />
+        <style>{`@media (max-width: 768px) { .rocket-bg-img { display: none !important; } }`}</style>
 
         {/* Hero — centered */}
         <section
@@ -252,7 +276,7 @@ export default function Confirm() {
       {/* ══════════════════════════════════════════════════════════════════════
           WHITE ZONE: FAQ Videos
       ══════════════════════════════════════════════════════════════════════ */}
-      <div style={{ background: "#ffffff" }}>
+      <div id="faq-section" style={{ background: "#ffffff" }}>
         <section style={{ padding: "80px 1.5rem" }}>
           <div style={{ maxWidth: 1100, margin: "0 auto" }}>
             <p className="font-mono-accent" style={{ textAlign: "center", color: "rgba(3,8,0,0.3)", letterSpacing: "0.18em", fontSize: "0.65rem", marginBottom: "0.75rem" }}>
