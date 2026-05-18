@@ -95,23 +95,23 @@ export default function Confirm() {
       <div style={{ background: "#030800", position: "relative", overflow: "hidden" }}>
         <StarField />
 
-        {/* Rocket ninja — <img> so it definitely renders, right side of hero */}
+        {/* Rocket ninja — absolute, right side, behind content */}
         <img
           src={ROCKET_BG}
           alt=""
           aria-hidden="true"
           style={{
             position: "absolute",
-            top: "50%",
-            right: "-2%",
-            transform: "translateY(-50%)",
-            width: "52%",
-            maxWidth: 700,
-            opacity: 0.88,
+            top: "50px",
+            right: "0",
+            height: "90vh",
+            width: "auto",
+            maxWidth: "50%",
+            opacity: 0.85,
             pointerEvents: "none",
-            zIndex: 1,
-            maskImage: "linear-gradient(to left, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)",
-            WebkitMaskImage: "linear-gradient(to left, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)",
+            zIndex: 0,
+            maskImage: "linear-gradient(to left, rgba(0,0,0,0.95) 30%, rgba(0,0,0,0) 100%)",
+            WebkitMaskImage: "linear-gradient(to left, rgba(0,0,0,0.95) 30%, rgba(0,0,0,0) 100%)",
           }}
         />
 
