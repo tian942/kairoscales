@@ -119,7 +119,7 @@ function Navbar() {
             { label: "How It Works", id: "how-it-works" },
             { label: "Services",     id: "services" },
             { label: "Why Kairo",    id: "why-kairo" },
-            { label: "Results",      id: "results" },
+            { label: "Results",      id: "case-studies" },
           ].map((item) => (
             <button key={item.id} onClick={() => scrollTo(item.id)}
               className="text-sm font-medium transition-colors duration-200"
@@ -177,11 +177,16 @@ function HeroSection() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16">
         {/* Top copy */}
         <div className="max-w-2xl mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-mono-accent mb-8"
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-mono-accent mb-6"
             style={{ background: "rgba(184,255,0,0.12)", border: "1px solid rgba(184,255,0,0.35)", color: "#b8ff00", letterSpacing: "0.1em" }}>
             <span className="w-2 h-2 rounded-full" style={{ background: "#b8ff00", animation: "pulse-glow 2s infinite" }} />
             FOR BUSINESSES DOING $100K–$300K/MONTH
           </div>
+
+          {/* Slogan */}
+          <p className="mb-6" style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "clamp(1rem,2vw,1.25rem)", color: "rgba(255,255,255,0.55)", fontStyle: "italic", letterSpacing: "0.01em" }}>
+            Advertising that's just weird enough to work.
+          </p>
 
           <h1 className="font-display leading-none mb-6" style={{ fontSize: "clamp(3.5rem,8vw,6.5rem)", color: "#fff" }}>
             PROVEN MARKETING<br />
@@ -251,7 +256,7 @@ function HowItWorksSection() {
               <p className="text-base leading-relaxed mb-6" style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'DM Sans',sans-serif" }}>
                 We don't run ads. We build weapons. Your entire revenue machine — funnel, copy, VSL, emails, automations — engineered from scratch in 14 days. We replicate the precision of an organic sales process through paid advertising.
               </p>
-              <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="btn-outline-lime" style={{ fontSize: "0.9rem" }}>View Our Strategies →</a>
+              <button onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })} className="btn-outline-lime" style={{ fontSize: "0.9rem" }}>View Our Strategies →</button>
             </div>
 
             <div className="reveal rounded-2xl p-8 relative overflow-hidden" style={{ background: "#b8ff00", transitionDelay: "100ms" }}>
@@ -259,7 +264,7 @@ function HowItWorksSection() {
               <p className="text-base leading-relaxed mb-6" style={{ color: "rgba(6,13,0,0.72)", fontFamily: "'DM Sans',sans-serif" }}>
                 Your business needs consistency, not casino odds. We deploy proven conversion mechanisms — VSLs, call funnels, DM strategies, webinars, and lead qualification systems. If your revenue doesn't go up? You don't pay. Simple.
               </p>
-              <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="btn-lime" style={{ fontSize: "0.9rem", background: "#060d00", color: "#b8ff00" }}>Learn More →</a>
+              <button onClick={() => document.getElementById("case-studies")?.scrollIntoView({ behavior: "smooth" })} className="btn-lime" style={{ fontSize: "0.9rem", background: "#060d00", color: "#b8ff00" }}>See Results →</button>
             </div>
           </div>
         </div>
@@ -543,7 +548,7 @@ const CLIP_VIDEOS = [
 function CaseStudiesSection() {
   return (
     <>
-      <section style={{ background: "#ffffff" }} className="py-24 overflow-hidden">
+      <section id="case-studies" style={{ background: "#ffffff" }} className="py-24 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="reveal text-center mb-16">
