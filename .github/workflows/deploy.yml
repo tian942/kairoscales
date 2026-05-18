@@ -31,14 +31,12 @@ jobs:
         run: |
           npm install --legacy-peer-deps
           npm run build
-          echo "--- Build output ---"
-          ls -la
 
       - uses: actions/configure-pages@v4
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: './client/dist'
+          path: './dist/public'
 
       - name: Deploy
         id: deployment
