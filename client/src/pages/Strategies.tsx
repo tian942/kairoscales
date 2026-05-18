@@ -9,6 +9,7 @@ import { Link } from "wouter";
 
 const CALENDLY = "https://calendly.com/kairoscales/30min";
 const LOGO = "/images/kairo_logo.png";
+const HERO_BG = "/images/cartoon_hero2.png";
 
 // ─── Star Field (same as Home) ────────────────────────────────────────────────
 function StarField() {
@@ -71,7 +72,27 @@ export default function Strategies() {
   }, []);
 
   return (
-    <div className="min-h-screen" style={{ background: "#030800", color: "#fff" }}>
+    <div className="min-h-screen" style={{ background: "#030800", color: "#fff", position: "relative" }}>
+      {/* Ninja full-bleed background — fixed to top, fades out below hero */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: "fixed",
+          top: 0,
+          right: 0,
+          width: "65%",
+          height: "100vh",
+          backgroundImage: `url(${HERO_BG})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center top",
+          backgroundRepeat: "no-repeat",
+          opacity: 0.18,
+          pointerEvents: "none",
+          zIndex: 0,
+          maskImage: "linear-gradient(to left, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%)",
+          WebkitMaskImage: "linear-gradient(to left, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%)",
+        }}
+      />
       <StarField />
       <Navbar />
 
