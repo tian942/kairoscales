@@ -11,6 +11,8 @@ import { useEffect } from "react";
 
 const CALENDLY = "https://calendly.com/kairoscales/30min";
 
+const MONSTER_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663164421367/5heSeJh2v29W3kmYZUe7Wn/space_monster_peek-noMfNZoaxLGXzjJ57aKYKn.webp";
+
 const IMAGES = {
   hero:    "https://d2xsxph8kpxj0f.cloudfront.net/310519663164421367/5heSeJh2v29W3kmYZUe7Wn/cartoon_hero2-7wf2Gc4wEcVvq39wE3W39M.webp",
   feature: "https://d2xsxph8kpxj0f.cloudfront.net/310519663164421367/5heSeJh2v29W3kmYZUe7Wn/cartoon_feature2-nigtQtFxgVKSbKFF7EitrF.webp",
@@ -157,22 +159,32 @@ function Navbar() {
 function WistiaVSL() {
   useWistia();
   return (
-    <div className="reveal" style={{ transitionDelay: "200ms" }}>
+    <div className="reveal" style={{ transitionDelay: "200ms", position: "relative", maxWidth: 820, margin: "0 auto" }}>
+      {/* Space monster behind the video */}
+      <img
+        src={MONSTER_IMG}
+        alt=""
+        style={{
+          position: "absolute",
+          inset: "-18% -12%",
+          width: "124%",
+          height: "136%",
+          objectFit: "cover",
+          pointerEvents: "none",
+          zIndex: 0,
+        }}
+      />
+      {/* Video player — no border, just drop shadow */}
       <div
         style={{
-          maxWidth: 760,
-          margin: "0 auto",
-          borderRadius: "1.25rem",
+          position: "relative",
+          zIndex: 1,
+          borderRadius: "1rem",
           overflow: "hidden",
-          boxShadow: "0 0 0 3px rgba(184,255,0,0.35), 0 25px 60px rgba(0,0,0,0.6), 0 0 80px rgba(184,255,0,0.12)",
+          boxShadow: "0 30px 80px rgba(0,0,0,0.7)",
           background: "#000",
         }}
       >
-        {/* Floating label */}
-        <div style={{ background: "rgba(184,255,0,0.1)", borderBottom: "1px solid rgba(184,255,0,0.2)", padding: "0.5rem 1rem", display: "flex", alignItems: "center", gap: "0.5rem" }}>
-          <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#b8ff00", display: "inline-block", animation: "pulse-glow 2s infinite" }} />
-          <span className="font-mono-accent" style={{ color: "#b8ff00", fontSize: "0.7rem", letterSpacing: "0.15em" }}>WATCH: HOW KAIRO GETS YOU TO $300K/MONTH</span>
-        </div>
         {/* @ts-ignore */}
         <wistia-player media-id="7i60n49s27" aspect="1.7777777777777777" />
       </div>
@@ -373,12 +385,95 @@ function WhyKairoSection() {
 
 function ResultsSection() {
   const problems = [
-    { icon: "💀", title: '"We\'ll Get You Results" — They Didn\'t', desc: "You've paid $5K, $10K, even $20K to agencies who promised the world. 6 months later? Same revenue. Different excuses." },
-    { icon: "🎰", title: "Your Funnel is a Casino",              desc: "Some months are great. Most aren't. You have no idea why. Your 'funnel' is a landing page, a prayer, and a Calendly link." },
-    { icon: "🔥", title: "Every Dollar Feels Like a Gamble",     desc: "You want to scale to $50K/month in ad spend but you're terrified. Last time you scaled, ROAS tanked and you lost $12K in a week." },
-    { icon: "😤", title: "Your Sales Team is Exhausted",         desc: "Half your calls are tire-kickers who 'need to think about it.' Your closers are demoralized. Lead quality is the problem." },
-    { icon: "⏰", title: "You're Working IN the Business",       desc: "You're still writing copy, fixing automations, and managing ads yourself because no one else 'gets it.' You're the bottleneck." },
-    { icon: "📉", title: "Starting to Think This is Your Ceiling", desc: "You've been at $150K–$200K for 18 months. Part of you is starting to believe $300K+ just isn't in the cards." },
+    {
+      icon: (
+        <svg viewBox="0 0 48 48" width="44" height="44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* Skull — hand-drawn cartoon style */}
+          <ellipse cx="24" cy="20" rx="14" ry="13" stroke="#b8ff00" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
+          <path d="M14 28 Q12 36 16 38 L32 38 Q36 36 34 28" stroke="#b8ff00" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
+          <line x1="20" y1="38" x2="20" y2="33" stroke="#b8ff00" strokeWidth="2" strokeLinecap="round"/>
+          <line x1="28" y1="38" x2="28" y2="33" stroke="#b8ff00" strokeWidth="2" strokeLinecap="round"/>
+          <circle cx="19" cy="20" r="3.5" stroke="#b8ff00" strokeWidth="2" fill="none"/>
+          <circle cx="29" cy="20" r="3.5" stroke="#b8ff00" strokeWidth="2" fill="none"/>
+          <path d="M22 27 Q24 25 26 27" stroke="#b8ff00" strokeWidth="2" strokeLinecap="round" fill="none"/>
+        </svg>
+      ),
+      title: '"We\'ll Get You Results" — They Didn\'t',
+      desc: "You've paid $5K, $10K, even $20K to agencies who promised the world. 6 months later? Same revenue. Different excuses."
+    },
+    {
+      icon: (
+        <svg viewBox="0 0 48 48" width="44" height="44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* Slot machine / casino */}
+          <rect x="8" y="10" width="32" height="28" rx="4" stroke="#b8ff00" strokeWidth="2.5" fill="none"/>
+          <rect x="13" y="15" width="7" height="12" rx="2" stroke="#b8ff00" strokeWidth="2" fill="none"/>
+          <rect x="20.5" y="15" width="7" height="12" rx="2" stroke="#b8ff00" strokeWidth="2" fill="none"/>
+          <rect x="28" y="15" width="7" height="12" rx="2" stroke="#b8ff00" strokeWidth="2" fill="none"/>
+          <path d="M16.5 21 L16.5 22" stroke="#b8ff00" strokeWidth="2.5" strokeLinecap="round"/>
+          <path d="M24 20 L24 23" stroke="#b8ff00" strokeWidth="2.5" strokeLinecap="round"/>
+          <path d="M31.5 21 L31.5 22" stroke="#b8ff00" strokeWidth="2.5" strokeLinecap="round"/>
+          <path d="M18 31 Q24 34 30 31" stroke="#b8ff00" strokeWidth="2" strokeLinecap="round" fill="none"/>
+          <path d="M36 14 L40 10 M40 14 L36 10" stroke="#b8ff00" strokeWidth="2" strokeLinecap="round"/>
+        </svg>
+      ),
+      title: "Your Funnel is a Casino",
+      desc: "Some months are great. Most aren't. You have no idea why. Your 'funnel' is a landing page, a prayer, and a Calendly link."
+    },
+    {
+      icon: (
+        <svg viewBox="0 0 48 48" width="44" height="44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* Flame */}
+          <path d="M24 42 C14 42 10 34 14 26 C16 22 18 20 18 16 C20 20 20 22 24 24 C22 18 26 12 28 8 C32 16 36 20 34 30 C36 28 37 24 36 20 C40 26 40 36 34 40 C32 42 28 43 24 42 Z" stroke="#b8ff00" strokeWidth="2.5" strokeLinejoin="round" fill="none"/>
+          <path d="M22 36 C18 34 17 30 20 27 C21 30 23 31 24 33 C25 31 25 29 24 27 C27 29 28 33 26 36 C25 37 23 37 22 36 Z" stroke="#b8ff00" strokeWidth="1.5" strokeLinejoin="round" fill="none"/>
+        </svg>
+      ),
+      title: "Every Dollar Feels Like a Gamble",
+      desc: "You want to scale to $50K/month in ad spend but you're terrified. Last time you scaled, ROAS tanked and you lost $12K in a week."
+    },
+    {
+      icon: (
+        <svg viewBox="0 0 48 48" width="44" height="44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* Exhausted face */}
+          <circle cx="24" cy="24" r="16" stroke="#b8ff00" strokeWidth="2.5" fill="none"/>
+          <path d="M16 18 Q18 15 20 18" stroke="#b8ff00" strokeWidth="2" strokeLinecap="round" fill="none"/>
+          <path d="M28 18 Q30 15 32 18" stroke="#b8ff00" strokeWidth="2" strokeLinecap="round" fill="none"/>
+          <path d="M17 31 Q24 27 31 31" stroke="#b8ff00" strokeWidth="2" strokeLinecap="round" fill="none"/>
+          <path d="M20 22 L28 22" stroke="#b8ff00" strokeWidth="2" strokeLinecap="round"/>
+          <path d="M22 22 L22 26" stroke="#b8ff00" strokeWidth="2" strokeLinecap="round"/>
+          <path d="M26 22 L26 26" stroke="#b8ff00" strokeWidth="2" strokeLinecap="round"/>
+        </svg>
+      ),
+      title: "Your Sales Team is Exhausted",
+      desc: "Half your calls are tire-kickers who 'need to think about it.' Your closers are demoralized. Lead quality is the problem."
+    },
+    {
+      icon: (
+        <svg viewBox="0 0 48 48" width="44" height="44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* Clock / alarm */}
+          <circle cx="24" cy="26" r="14" stroke="#b8ff00" strokeWidth="2.5" fill="none"/>
+          <path d="M24 16 L24 26 L31 30" stroke="#b8ff00" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M10 14 Q8 10 12 8" stroke="#b8ff00" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
+          <path d="M38 14 Q40 10 36 8" stroke="#b8ff00" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
+          <path d="M20 40 L22 43 M28 40 L26 43" stroke="#b8ff00" strokeWidth="2" strokeLinecap="round"/>
+        </svg>
+      ),
+      title: "You're Working IN the Business",
+      desc: "You're still writing copy, fixing automations, and managing ads yourself because no one else 'gets it.' You're the bottleneck."
+    },
+    {
+      icon: (
+        <svg viewBox="0 0 48 48" width="44" height="44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* Downward chart */}
+          <rect x="6" y="8" width="36" height="28" rx="3" stroke="#b8ff00" strokeWidth="2.5" fill="none"/>
+          <path d="M10 14 L18 20 L26 16 L38 28" stroke="#b8ff00" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M32 28 L38 28 L38 22" stroke="#b8ff00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          <line x1="6" y1="40" x2="42" y2="40" stroke="#b8ff00" strokeWidth="2" strokeLinecap="round"/>
+          <line x1="6" y1="36" x2="6" y2="40" stroke="#b8ff00" strokeWidth="2" strokeLinecap="round"/>
+        </svg>
+      ),
+      title: "Starting to Think This is Your Ceiling",
+      desc: "You've been at $150K–$200K for 18 months. Part of you is starting to believe $300K+ just isn't in the cards."
+    },
   ];
 
   return (
@@ -395,7 +490,7 @@ function ResultsSection() {
             {problems.map((p, i) => (
               <div key={p.title} className="reveal rounded-xl p-6"
                 style={{ background: "#060d00", border: "1px solid rgba(184,255,0,0.12)", transitionDelay: `${i * 60}ms` }}>
-                <div className="text-3xl mb-3">{p.icon}</div>
+                <div className="mb-4">{p.icon}</div>
                 <h3 className="font-semibold mb-2" style={{ color: "#fff", fontFamily: "'DM Sans',sans-serif", fontSize: "1rem" }}>{p.title}</h3>
                 <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.55)", fontFamily: "'DM Sans',sans-serif" }}>{p.desc}</p>
               </div>
