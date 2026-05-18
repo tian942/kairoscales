@@ -11,17 +11,16 @@ import { useEffect } from "react";
 
 const CALENDLY = "https://calendly.com/kairoscales/30min";
 
-const MONSTER_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663164421367/5heSeJh2v29W3kmYZUe7Wn/space_monster_peek-noMfNZoaxLGXzjJ57aKYKn.webp";
-
 const IMAGES = {
-  hero:    "https://d2xsxph8kpxj0f.cloudfront.net/310519663164421367/5heSeJh2v29W3kmYZUe7Wn/cartoon_hero2-7wf2Gc4wEcVvq39wE3W39M.webp",
-  feature: "https://d2xsxph8kpxj0f.cloudfront.net/310519663164421367/5heSeJh2v29W3kmYZUe7Wn/cartoon_feature2-nigtQtFxgVKSbKFF7EitrF.webp",
-  funnel:  "https://d2xsxph8kpxj0f.cloudfront.net/310519663164421367/5heSeJh2v29W3kmYZUe7Wn/cartoon_funnel2-bDuWPKGAdCczNtJDcf7EWK.webp",
-  ads:     "https://d2xsxph8kpxj0f.cloudfront.net/310519663164421367/5heSeJh2v29W3kmYZUe7Wn/cartoon_ads2-D8NfJMVPBFbubWKSDUCF7K.webp",
-  vsl:     "https://d2xsxph8kpxj0f.cloudfront.net/310519663164421367/5heSeJh2v29W3kmYZUe7Wn/cartoon_vsl2-Y7WbK2qxdnf2CRYnnKFC7x.webp",
-  emails:  "https://d2xsxph8kpxj0f.cloudfront.net/310519663164421367/5heSeJh2v29W3kmYZUe7Wn/cartoon_emails2-5Kvb4ssMrSjwXrDgHFGpW2.webp",
-  rocket:  "https://d2xsxph8kpxj0f.cloudfront.net/310519663164421367/5heSeJh2v29W3kmYZUe7Wn/cartoon_rocket2-9qwcXDpuA9GuXn5PPgyTpa.webp",
-  logo:    "/manus-storage/kairo_logo_b18a7729.png",
+  hero:      "/manus-storage/cartoon_hero2_6d7a8072.png",
+  feature:   "/manus-storage/cartoon_feature2_fc6f9ad7.png",
+  funnel:    "/manus-storage/cartoon_funnel2_a057336e.png",
+  ads:       "/manus-storage/cartoon_ads2_071a5d20.png",
+  vsl:       "/manus-storage/cartoon_vsl2_79dc5bd5.png",
+  emails:    "/manus-storage/cartoon_emails2_ff9ae304.png",
+  rocket:    "/manus-storage/cartoon_rocket2_11421383.png",
+  logo:      "/manus-storage/kairo_logo_b9b1b50c.png",
+  dashboard: "/manus-storage/dashboard_result_33e7faae.png",
 };
 
 function useScrollReveal() {
@@ -510,7 +509,114 @@ function OperatorSection() {
   );
 }
 
-// ─── SECTION 7 (WHITE): Final CTA ────────────────────────────────────────────
+// ─── SECTION 7 (WHITE): Case Studies / Video Testimonials ──────────────────
+
+const FEATURED_VIDEOS = [
+  {
+    label: "3X HIS SALES IN 2 MONTHS",
+    embed: "https://www.youtube.com/embed/BsmUZTVvPpQ?rel=0",
+    type: "youtube",
+  },
+  {
+    label: "40% LOWER CPQC WITH OUR ADS",
+    embed: "https://player.vimeo.com/video/1147567452?app_id=122963",
+    type: "vimeo",
+  },
+  {
+    label: "MULTIPLE 5-FIGURE DEALS — SALES INFRASTRUCTURE",
+    embed: "https://player.vimeo.com/video/1150973919?app_id=122963",
+    type: "vimeo",
+  },
+];
+
+const CLIP_VIDEOS = [
+  "https://player.vimeo.com/video/1154957070?app_id=122963",
+  "https://player.vimeo.com/video/1154956581?app_id=122963",
+  "https://player.vimeo.com/video/1154956245?app_id=122963",
+  "https://player.vimeo.com/video/1154955790?app_id=122963",
+  "https://player.vimeo.com/video/1154954208?app_id=122963",
+  "https://player.vimeo.com/video/1154953302?app_id=122963",
+  "https://player.vimeo.com/video/1154953067?app_id=122963",
+  "https://player.vimeo.com/video/1154952529?app_id=122963",
+];
+
+function CaseStudiesSection() {
+  return (
+    <>
+      <section style={{ background: "#ffffff" }} className="py-24 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header */}
+          <div className="reveal text-center mb-16">
+            <p className="font-mono-accent text-xs mb-3" style={{ color: "#060d00", letterSpacing: "0.2em", opacity: 0.4 }}>REAL CLIENTS. REAL RESULTS.</p>
+            <h2 className="font-display mb-4" style={{ fontSize: "clamp(2.5rem,5vw,4rem)", color: "#060d00", lineHeight: 1.05 }}>
+              THE WALL OF <span style={{ color: "#b8ff00", WebkitTextStroke: "2px #060d00" }}>SUCCESS</span>
+            </h2>
+            <p className="text-base" style={{ color: "rgba(6,13,0,0.55)", fontFamily: "'DM Sans',sans-serif", maxWidth: 520, margin: "0 auto" }}>
+              Watch how we've helped businesses break through revenue ceilings they thought were permanent.
+            </p>
+          </div>
+
+          {/* Dashboard proof card */}
+          <div className="reveal mb-16">
+            <div className="rounded-2xl overflow-hidden relative" style={{ border: "3px solid #060d00", boxShadow: "6px 6px 0 #060d00" }}>
+              <img src={IMAGES.dashboard} alt="$42k to $105k dashboard" className="w-full object-cover" />
+              <div className="absolute top-4 left-4 font-display text-white px-4 py-2 rounded-lg" style={{ background: "#060d00", fontSize: "1.1rem", letterSpacing: "0.05em" }}>
+                $42K / MONTH <span style={{ color: "#b8ff00" }}>→</span> $105K / MONTH
+              </div>
+            </div>
+          </div>
+
+          {/* Featured case study videos */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+            {FEATURED_VIDEOS.map((v, i) => (
+              <div key={i} className="reveal" style={{ transitionDelay: `${i * 80}ms` }}>
+                <div className="rounded-xl overflow-hidden mb-3" style={{ border: "3px solid #060d00", boxShadow: "4px 4px 0 #060d00", aspectRatio: "16/9", background: "#000" }}>
+                  <iframe
+                    src={v.embed}
+                    title={v.label}
+                    allow="autoplay; fullscreen; picture-in-picture"
+                    allowFullScreen
+                    style={{ width: "100%", height: "100%", border: "none", display: "block" }}
+                  />
+                </div>
+                <p className="font-mono-accent text-xs font-bold" style={{ color: "#060d00", letterSpacing: "0.1em" }}>{v.label}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Clips grid */}
+          <div className="reveal mb-10">
+            <p className="font-mono-accent text-xs mb-6 text-center" style={{ color: "#060d00", letterSpacing: "0.2em", opacity: 0.4 }}>CLIENT CLIPS</p>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+              {CLIP_VIDEOS.map((url, i) => (
+                <div key={i} className="reveal rounded-xl overflow-hidden" style={{ border: "2px solid #060d00", boxShadow: "3px 3px 0 #060d00", aspectRatio: "9/16", background: "#000", transitionDelay: `${i * 50}ms` }}>
+                  <iframe
+                    src={url}
+                    title={`Clip ${i + 1}`}
+                    allow="autoplay; fullscreen; picture-in-picture"
+                    allowFullScreen
+                    style={{ width: "100%", height: "100%", border: "none", display: "block" }}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA under case studies */}
+          <div className="reveal text-center mt-12">
+            <a href="https://gamma.app/docs/Kairo-Wall-Of-Success-uuuocv1tb1866mi" target="_blank" rel="noopener noreferrer"
+              className="btn-lime" style={{ background: "#060d00", color: "#b8ff00", fontSize: "1rem" }}>
+              See Full Wall of Success →
+            </a>
+          </div>
+        </div>
+      </section>
+      <WaveUp fromWhite={true} />
+    </>
+  );
+}
+
+// ─── SECTION 8 (DARK): Final CTA ────────────────────────────────────────────
 
 function CtaSection() {
   return (
@@ -625,6 +731,7 @@ export default function Home() {
       <WhyKairoSection />
       <ResultsSection />
       <OperatorSection />
+      <CaseStudiesSection />
       <CtaSection />
       <Footer />
     </div>
