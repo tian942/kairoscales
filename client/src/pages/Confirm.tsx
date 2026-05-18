@@ -97,72 +97,66 @@ export default function Confirm() {
 
 
 
-        {/* Hero — two column: text left, rocket right */}
+        {/* Rocket — absolute background on right */}
+        <img
+          src={ROCKET_BG}
+          alt=""
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            right: "-2%",
+            bottom: "5%",
+            height: "75vh",
+            width: "auto",
+            opacity: 0.55,
+            pointerEvents: "none",
+            zIndex: 1,
+            filter: "drop-shadow(0 0 40px rgba(184,255,0,0.1))",
+          }}
+        />
+
+        {/* Hero — centered */}
         <section
           style={{
             position: "relative", zIndex: 2,
             paddingTop: 100, paddingBottom: 80,
-            paddingLeft: "5%", paddingRight: "5%",
-            display: "grid",
-            gridTemplateColumns: "1fr 420px",
-            gap: "3rem",
-            alignItems: "center",
-            maxWidth: 1300,
-            margin: "0 auto",
+            paddingLeft: "1.5rem", paddingRight: "1.5rem",
+            display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center",
           }}
         >
-          {/* Left: text + video */}
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            <div
-              className="font-mono-accent"
-              style={{
-                display: "inline-flex", alignItems: "center", gap: "0.5rem",
-                marginBottom: "1.5rem", padding: "0.375rem 0.875rem",
-                borderRadius: 999, alignSelf: "flex-start",
-                background: "rgba(184,255,0,0.08)",
-                border: "1px solid rgba(184,255,0,0.25)",
-                color: "#b8ff00", letterSpacing: "0.12em", fontSize: "0.65rem",
-              }}
-            >
-              <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#b8ff00", animation: "pulse 2s infinite" }} />
-              YOUR CALL IS CONFIRMED
-            </div>
-
-            <h1
-              className="font-display"
-              style={{ fontSize: "clamp(1.8rem, 3.5vw, 3rem)", color: "#fff", lineHeight: 1.05, marginBottom: "1rem" }}
-            >
-              YOU'RE BOOKED.{" "}
-              <span style={{ color: "#b8ff00" }}>HERE'S EXACTLY</span>
-              {" "}WHAT HAPPENS NEXT.
-            </h1>
-
-            <p style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "1rem", color: "rgba(255,255,255,0.5)", lineHeight: 1.6, marginBottom: "2rem", maxWidth: 520 }}>
-              Watch the short video below before your call — it'll save us 20 minutes and make sure we can actually help you.
-            </p>
-
-            <div style={{ position: "relative", zIndex: 3 }}>
-              <p className="font-mono-accent" style={{ color: "rgba(255,255,255,0.3)", letterSpacing: "0.18em", fontSize: "0.62rem", marginBottom: "0.75rem" }}>
-                ⚠ IMPORTANT: WATCH THIS BEFORE YOUR CALL
-              </p>
-              <WistiaEmbed mediaId={MAIN_VSL} />
-            </div>
+          <div
+            className="font-mono-accent"
+            style={{
+              display: "inline-flex", alignItems: "center", gap: "0.5rem",
+              marginBottom: "1.5rem", padding: "0.375rem 0.875rem",
+              borderRadius: 999,
+              background: "rgba(184,255,0,0.08)",
+              border: "1px solid rgba(184,255,0,0.25)",
+              color: "#b8ff00", letterSpacing: "0.12em", fontSize: "0.65rem",
+            }}
+          >
+            <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#b8ff00", animation: "pulse 2s infinite" }} />
+            YOUR CALL IS CONFIRMED
           </div>
 
-          {/* Right: rocket image */}
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <img
-              src={ROCKET_BG}
-              alt=""
-              aria-hidden="true"
-              style={{
-                width: "100%",
-                maxWidth: 420,
-                height: "auto",
-                opacity: 0.95,
-                filter: "drop-shadow(0 0 40px rgba(184,255,0,0.15))",
-              }}
-            />
+          <h1
+            className="font-display"
+            style={{ fontSize: "clamp(2rem,4.5vw,3.5rem)", color: "#fff", lineHeight: 1.05, marginBottom: "1rem", maxWidth: 860 }}
+          >
+            YOU'RE BOOKED.{" "}
+            <span style={{ color: "#b8ff00" }}>HERE'S EXACTLY</span>
+            <br />WHAT HAPPENS NEXT.
+          </h1>
+
+          <p style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "1rem", color: "rgba(255,255,255,0.5)", maxWidth: 560, lineHeight: 1.6, marginBottom: "2.5rem" }}>
+            Watch the short video below before your call — it'll save us 20 minutes and make sure we can actually help you.
+          </p>
+
+          <div style={{ width: "100%", maxWidth: 780, position: "relative", zIndex: 3 }}>
+            <p className="font-mono-accent" style={{ color: "rgba(255,255,255,0.3)", letterSpacing: "0.18em", fontSize: "0.62rem", marginBottom: "0.75rem" }}>
+              ⚠ IMPORTANT: WATCH THIS BEFORE YOUR CALL
+            </p>
+            <WistiaEmbed mediaId={MAIN_VSL} />
           </div>
         </section>
 
@@ -230,13 +224,10 @@ export default function Confirm() {
           </div>
         </section>
 
-        {/* Wave: white → dark — lives INSIDE the white div so background matches */}
-        <div style={{ lineHeight: 0, fontSize: 0, overflow: "hidden" }}>
+        {/* Wave: white → dark — single path, white bg, dark fill from wave down */}
+        <div style={{ lineHeight: 0, fontSize: 0, display: "block", marginBottom: -2 }}>
           <svg viewBox="0 0 1440 80" preserveAspectRatio="none" style={{ width: "100%", height: 80, display: "block" }}>
-            {/* Full dark fill from top, wave cuts into white at bottom */}
-            <path d="M0,0 L1440,0 L1440,80 L0,80 Z" fill="#060d00" />
-            {/* White wave shape that peeks up from the bottom */}
-            <path d="M0,40 C240,80 480,10 720,40 C960,70 1200,20 1440,40 L1440,80 L0,80 Z" fill="#ffffff" />
+            <path d="M0,0 C360,80 1080,0 1440,60 L1440,80 L0,80 Z" fill="#060d00" />
           </svg>
         </div>
       </div>
