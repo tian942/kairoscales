@@ -9,18 +9,19 @@ import { useEffect } from "react";
 const LOGO = "/images/logo.png";
 const ROCKET_BG = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663164421367/zUKWFxsjXLjesrrc.png";
 
-const BUBBLE_DATA = Array.from({ length: 14 }, (_, i) => ({
+const BUBBLE_DATA = Array.from({ length: 6 }, (_, i) => ({
   id: i,
-  size: 10 + (i * 7) % 20,
-  left: 3 + (i * 13) % 94,
-  delay: (i * 1.3) % 9,
-  duration: 9 + (i * 2.1) % 8,
+  size: 8 + (i * 5) % 14,
+  left: 8 + (i * 17) % 80,
+  delay: (i * 2.1) % 9,
+  duration: 12 + (i * 2.3) % 8,
 }));
 
 function Bubbles() {
   return (
     <>
       <style>{`
+        @media (max-width: 768px) { .kairo-bubbles { display: none !important; } }
         @keyframes bubble-rise {
           0%   { transform: translateY(0) scale(1);   opacity: 0; }
           5%   { opacity: 0.7; }
@@ -30,6 +31,7 @@ function Bubbles() {
       `}</style>
       <div
         aria-hidden="true"
+        className="kairo-bubbles"
         style={{
           position: "fixed",
           bottom: 0, left: 0, right: 0,
@@ -49,9 +51,9 @@ function Bubbles() {
               width: b.size,
               height: b.size,
               borderRadius: "50%",
-              background: "rgba(184,255,0,0.22)",
-              border: "1.5px solid rgba(184,255,0,0.5)",
-              boxShadow: "0 0 8px rgba(184,255,0,0.3)",
+              background: "rgba(184,255,0,0.12)",
+              border: "1px solid rgba(184,255,0,0.28)",
+              boxShadow: "0 0 6px rgba(184,255,0,0.15)",
               animation: `bubble-rise ${b.duration}s ${b.delay}s infinite linear`,
             }}
           />
