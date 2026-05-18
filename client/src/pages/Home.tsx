@@ -159,26 +159,10 @@ function Navbar() {
 function WistiaVSL() {
   useWistia();
   return (
-    <div className="reveal" style={{ transitionDelay: "200ms", position: "relative", maxWidth: 820, margin: "0 auto" }}>
-      {/* Space monster behind the video */}
-      <img
-        src={MONSTER_IMG}
-        alt=""
-        style={{
-          position: "absolute",
-          inset: "-18% -12%",
-          width: "124%",
-          height: "136%",
-          objectFit: "cover",
-          pointerEvents: "none",
-          zIndex: 0,
-        }}
-      />
-      {/* Video player — no border, just drop shadow */}
+    <div className="reveal" style={{ transitionDelay: "200ms", maxWidth: 820, margin: "0 auto" }}>
+      {/* Video player — clean, no border */}
       <div
         style={{
-          position: "relative",
-          zIndex: 1,
           borderRadius: "1rem",
           overflow: "hidden",
           boxShadow: "0 30px 80px rgba(0,0,0,0.7)",
@@ -240,10 +224,14 @@ function HeroSection() {
 
           {/* Stats */}
           <div className="flex flex-wrap gap-10 mb-14">
-            {[{ value: "5X", label: "Average ROAS" }, { value: "14", label: "Days to Launch" }, { value: "$0", label: "If We Don't Perform" }].map((s) => (
-              <div key={s.label}>
+            {[
+              { value: "5X",  label: "AVERAGE ROAS" },
+              { value: "14",  label: "DAYS TO LAUNCH" },
+              { value: "$0",  label: "IF WE DON'T PERFORM" },
+            ].map((s) => (
+              <div key={s.label} style={{ display: "flex", flexDirection: "column", gap: 4 }}>
                 <div className="font-display" style={{ fontSize: "2.8rem", color: "#b8ff00", lineHeight: 1 }}>{s.value}</div>
-                <div className="font-mono-accent text-xs mt-1" style={{ color: "rgba(255,255,255,0.45)", letterSpacing: "0.1em" }}>{s.label.toUpperCase()}</div>
+                <div className="font-mono-accent" style={{ fontSize: "0.65rem", color: "rgba(255,255,255,0.5)", letterSpacing: "0.12em" }}>{s.label}</div>
               </div>
             ))}
           </div>
