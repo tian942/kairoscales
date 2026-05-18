@@ -115,11 +115,16 @@ function Navbar() {
         </div>
 
         <div className="hidden md:flex items-center gap-7">
+          <a href="/strategies"
+            className="text-sm font-medium transition-colors duration-200"
+            style={{ color: "rgba(255,255,255,0.7)", fontFamily: "'DM Sans',sans-serif" }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = "#b8ff00")}
+            onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.7)")}
+          >How It Works</a>
           {[
-            { label: "How It Works", id: "how-it-works" },
-            { label: "Services",     id: "services" },
-            { label: "Why Kairo",    id: "why-kairo" },
-            { label: "Results",      id: "case-studies" },
+            { label: "Services",  id: "services" },
+            { label: "Why Kairo", id: "why-kairo" },
+            { label: "Results",   id: "case-studies" },
           ].map((item) => (
             <button key={item.id} onClick={() => scrollTo(item.id)}
               className="text-sm font-medium transition-colors duration-200"
@@ -678,13 +683,22 @@ function Footer() {
           <div>
             <h4 className="font-mono-accent text-xs mb-4" style={{ color: "#b8ff00", letterSpacing: "0.15em" }}>NAVIGATION</h4>
             <div className="flex flex-col gap-2">
-              {["How It Works", "Services", "Why Kairo", "Results", "Book a Call"].map((link) => (
-                <a key={link} href={CALENDLY} target="_blank" rel="noopener noreferrer"
+              {[
+                { label: "How It Works", href: "/strategies" },
+                { label: "Services",     href: "/#services" },
+                { label: "Why Kairo",    href: "/#why-kairo" },
+                { label: "Results",      href: "/#case-studies" },
+                { label: "Book a Call",  href: CALENDLY },
+              ].map((link) => (
+                <a key={link.label}
+                  href={link.href}
+                  target={link.href.startsWith("http") ? "_blank" : undefined}
+                  rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
                   className="text-sm transition-colors duration-200"
                   style={{ color: "rgba(255,255,255,0.45)", fontFamily: "'DM Sans',sans-serif" }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = "#b8ff00")}
                   onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.45)")}
-                >{link}</a>
+                >{link.label}</a>
               ))}
             </div>
           </div>
