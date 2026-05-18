@@ -149,6 +149,20 @@ function WistiaVSL() {
   useWistia();
   return (
     <div className="reveal" style={{ transitionDelay: "200ms", maxWidth: 820, margin: "0 auto" }}>
+      {/* Label above video */}
+      <p
+        style={{
+          fontFamily: "'Space Mono', monospace",
+          color: "rgba(255,255,255,0.38)",
+          letterSpacing: "0.18em",
+          fontSize: "0.62rem",
+          textAlign: "center",
+          marginBottom: "0.75rem",
+          textTransform: "uppercase",
+        }}
+      >
+        ⚠ IMPORTANT: BREAKDOWN OF WHAT WE DO FOR YOU
+      </p>
       {/* Video player — clean, no border */}
       <div
         style={{
