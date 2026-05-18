@@ -706,7 +706,7 @@ function Footer() {
           <div>
             <h4 className="font-mono-accent text-xs mb-4" style={{ color: "#b8ff00", letterSpacing: "0.15em" }}>CONTACT</h4>
             <div className="flex flex-col gap-2 mb-6">
-              <a href="mailto:tian@kairoscales.com" className="text-sm" style={{ color: "rgba(255,255,255,0.45)", fontFamily: "'DM Sans',sans-serif" }}
+              <a href="https://mail.google.com/mail/?view=cm&to=tian@kairoscales.com" target="_blank" rel="noopener noreferrer" className="text-sm" style={{ color: "rgba(255,255,255,0.45)", fontFamily: "'DM Sans',sans-serif" }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = "#b8ff00")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.45)")}
               >tian@kairoscales.com</a>

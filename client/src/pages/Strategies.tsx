@@ -124,6 +124,19 @@ export default function Strategies() {
           WITHOUT ADDING ANY MARKETING EXPENSES.
         </h1>
 
+        {/* VIDEO LABEL */}
+        <p
+          className="font-mono-accent"
+          style={{
+            color: "rgba(255,255,255,0.38)",
+            letterSpacing: "0.18em",
+            fontSize: "0.62rem",
+            marginBottom: "-0.5rem",
+          }}
+        >
+          ⚠ IMPORTANT: BREAKDOWN OF WHAT WE DO FOR YOU
+        </p>
+
         {/* VIDEO */}
         <div
           style={{
