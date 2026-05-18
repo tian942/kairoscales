@@ -7,7 +7,7 @@
 import { useEffect } from "react";
 
 const LOGO = "/images/logo.png";
-const ROCKET_BG = "/manus-storage/cartoon_rocket2_28867f4d.png";
+const ROCKET_BG = "/manus-storage/cartoon_rocket2_nobg_f1305282.png";
 
 const MAIN_VSL = "tpsxzf817l";
 const FAQ_VIDEOS = [
@@ -95,68 +95,74 @@ export default function Confirm() {
       <div style={{ background: "#030800", position: "relative", overflow: "hidden" }}>
         <StarField />
 
-        {/* Rocket ninja — absolute, right side, behind content */}
-        <img
-          src={ROCKET_BG}
-          alt=""
-          aria-hidden="true"
-          style={{
-            position: "absolute",
-            top: "50px",
-            right: "0",
-            height: "90vh",
-            width: "auto",
-            maxWidth: "50%",
-            opacity: 0.85,
-            pointerEvents: "none",
-            zIndex: 0,
-            maskImage: "linear-gradient(to left, rgba(0,0,0,0.95) 30%, rgba(0,0,0,0) 100%)",
-            WebkitMaskImage: "linear-gradient(to left, rgba(0,0,0,0.95) 30%, rgba(0,0,0,0) 100%)",
-          }}
-        />
 
-        {/* Hero */}
+
+        {/* Hero — two column: text left, rocket right */}
         <section
           style={{
             position: "relative", zIndex: 2,
             paddingTop: 100, paddingBottom: 80,
-            paddingLeft: "1.5rem", paddingRight: "1.5rem",
-            display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center",
+            paddingLeft: "5%", paddingRight: "5%",
+            display: "grid",
+            gridTemplateColumns: "1fr 420px",
+            gap: "3rem",
+            alignItems: "center",
+            maxWidth: 1300,
+            margin: "0 auto",
           }}
         >
-          <div
-            className="font-mono-accent"
-            style={{
-              display: "inline-flex", alignItems: "center", gap: "0.5rem",
-              marginBottom: "1.5rem", padding: "0.375rem 0.875rem",
-              borderRadius: 999,
-              background: "rgba(184,255,0,0.08)",
-              border: "1px solid rgba(184,255,0,0.25)",
-              color: "#b8ff00", letterSpacing: "0.12em", fontSize: "0.65rem",
-            }}
-          >
-            <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#b8ff00", animation: "pulse 2s infinite" }} />
-            YOUR CALL IS CONFIRMED
+          {/* Left: text + video */}
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <div
+              className="font-mono-accent"
+              style={{
+                display: "inline-flex", alignItems: "center", gap: "0.5rem",
+                marginBottom: "1.5rem", padding: "0.375rem 0.875rem",
+                borderRadius: 999, alignSelf: "flex-start",
+                background: "rgba(184,255,0,0.08)",
+                border: "1px solid rgba(184,255,0,0.25)",
+                color: "#b8ff00", letterSpacing: "0.12em", fontSize: "0.65rem",
+              }}
+            >
+              <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#b8ff00", animation: "pulse 2s infinite" }} />
+              YOUR CALL IS CONFIRMED
+            </div>
+
+            <h1
+              className="font-display"
+              style={{ fontSize: "clamp(1.8rem, 3.5vw, 3rem)", color: "#fff", lineHeight: 1.05, marginBottom: "1rem" }}
+            >
+              YOU'RE BOOKED.{" "}
+              <span style={{ color: "#b8ff00" }}>HERE'S EXACTLY</span>
+              {" "}WHAT HAPPENS NEXT.
+            </h1>
+
+            <p style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "1rem", color: "rgba(255,255,255,0.5)", lineHeight: 1.6, marginBottom: "2rem", maxWidth: 520 }}>
+              Watch the short video below before your call — it'll save us 20 minutes and make sure we can actually help you.
+            </p>
+
+            <div style={{ position: "relative", zIndex: 3 }}>
+              <p className="font-mono-accent" style={{ color: "rgba(255,255,255,0.3)", letterSpacing: "0.18em", fontSize: "0.62rem", marginBottom: "0.75rem" }}>
+                ⚠ IMPORTANT: WATCH THIS BEFORE YOUR CALL
+              </p>
+              <WistiaEmbed mediaId={MAIN_VSL} />
+            </div>
           </div>
 
-          <h1
-            className="font-display"
-            style={{ fontSize: "clamp(2rem, 5vw, 4rem)", color: "#fff", lineHeight: 1, marginBottom: "1rem", maxWidth: 860 }}
-          >
-            YOU'RE BOOKED.{" "}
-            <span style={{ color: "#b8ff00" }}>HERE'S EXACTLY</span>
-            <br />WHAT HAPPENS NEXT.
-          </h1>
-
-          <p style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "clamp(0.95rem,1.6vw,1.1rem)", color: "rgba(255,255,255,0.5)", maxWidth: 600, lineHeight: 1.6, marginBottom: "2.5rem" }}>
-            Watch the short video below before your call — it'll save us 20 minutes and make sure we can actually help you.
-          </p>
-
-          <div style={{ width: "100%", maxWidth: 780, position: "relative", zIndex: 3 }}>
-            <p className="font-mono-accent" style={{ color: "rgba(255,255,255,0.3)", letterSpacing: "0.18em", fontSize: "0.62rem", marginBottom: "0.75rem" }}>
-              ⚠ IMPORTANT: WATCH THIS BEFORE YOUR CALL
-            </p>
-            <WistiaEmbed mediaId={MAIN_VSL} />
+          {/* Right: rocket image */}
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <img
+              src={ROCKET_BG}
+              alt=""
+              aria-hidden="true"
+              style={{
+                width: "100%",
+                maxWidth: 420,
+                height: "auto",
+                opacity: 0.95,
+                filter: "drop-shadow(0 0 40px rgba(184,255,0,0.15))",
+              }}
+            />
           </div>
         </section>
 
