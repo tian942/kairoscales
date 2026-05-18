@@ -1,0 +1,35 @@
+{
+  "build_command": "pnpm run build",
+  "capabilities": [],
+  "dev_command": "pnpm run dev",
+  "env_vars": {},
+  "experiments": null,
+  "git_remote": {
+    "repo_url": "s3://vida-prod-gitrepo/webdev-git/310519663164421367/5heSeJh2v29W3kmYZUe7Wn",
+    "access_key_id": "ASIAZV3A2ECZAMVZ5BQJ",
+    "secret_access_key": "BSYq2613lMO4dZhcZ9Q+bb+p8zzuQLMkc2PbEboQ",
+    "session_token": "IQoJb3JpZ2luX2VjEOj//////////wEaCXVzLWVhc3QtMSJHMEUCIBK3OOC/XrL6ubZ2KEoXtlFCPUKGIk/rlaJUWGWRUeV8AiEAhQQXRC7caMKtnENPaaGSoJiikD4+5fki93w3KvpFlRsq/wMIsf//////////ARAEGgw2NjUzODYwOTg4NjYiDBtluXJ4zHj80V9U1yrTA5Gwehy29LLINoRmeBgOH4mE9D1y0DL7WEi8+tCL98oNj/Svuur5YjQwcbIU3UnVSoV8RWzHjWaoSCmq+UbQxVsWUZ8uYk51Dgd2kA3ql0riOqLCLSdO79NM7qC6lJyJYqdQyBWNGASgZMnsIKsZTb6EvvJEmVGze4Ul/LbszxccGuc6ZtJoxT4az+6Ar/YX22acUyWR2op6TLGD43w5Y//U/O3BOq4G0NYvkr5rN/a9uoIlST0i6k7D79rbBz7pqm38uB0fC30JrIlushJ09po7sp7IPx0YhOIk8NH5IiZxf2MlCi7aGO2ItJufdQblI2ubj0g6OV5Ie8JVC92JCdO3a5o98EKWvLZbAdFQbqnt4KgSymOK3PlJHzfSuLQ7z9PD0VmnWbXhNi4AK53X2Ns/sRKhzqVPTyKFV3rL85SntaMFesoPW6RJJZxHrGhiDR9x8KrNNKky0niVjoF0KyXCoHS91Vp9iQrYsC99ZtumPtVod8enD7uAkz9CVfFlvFoZM+lh3xemQct7QbEm2ihDaEF+3dVObcVwYGi8BTKsd+2wP0uT5Q1d4C8XZWVKI7RQ/VR6bR/eNFgHYYbjcFvnON+0m8zQZVEQ16ASmX13sDcGMLGuqdAGOp0Bbhj18roiVZCY3W3HAVjX8VdztD9fH9p5MYUGcucR0a4o/zpyCR4D4+0RnMSoUdlIWV9ZWf7TyU7V5BFIc1WZwVaPHVuCWrJOf90CvlM/ifTl7T74Fgr1w7gJqruu3L3ume2WT72VfW969p8O147h0mxMuRojgxC8dkSyPmwWK7ASSftloTMU6O3OhIbnikl23ZU797Z3w7EZijL0Hg==",
+    "expiration": "2026-05-18T12:02:57.000Z"
+  },
+  "name": "kairo-website",
+  "path": "/home/ubuntu/kairo-website",
+  "port": 3000,
+  "secrets": {
+    "BUILT_IN_FORGE_API_KEY": "nJ5J7TPHcHAjFUTgpPvc76",
+    "BUILT_IN_FORGE_API_URL": "https://forge.manus.ai",
+    "JWT_SECRET": "P9u3gFw8Co6Sy7LmoTEqbB",
+    "OAUTH_SERVER_URL": "https://api.manus.im",
+    "OWNER_NAME": "Tian",
+    "OWNER_OPEN_ID": "gvNaxXShrQMXtSXXKuY4eR",
+    "VITE_ANALYTICS_ENDPOINT": "https://manus-analytics.com",
+    "VITE_ANALYTICS_WEBSITE_ID": "f09c38cb-bf81-4ffd-8d6e-7a460c4791b8",
+    "VITE_APP_ID": "5heSeJh2v29W3kmYZUe7Wn",
+    "VITE_APP_LOGO": "",
+    "VITE_APP_TITLE": "Kairo Marketing — Space Ninja Agency",
+    "VITE_FRONTEND_FORGE_API_KEY": "UJmU7YT7Mu36VV8Jn3jGsM",
+    "VITE_FRONTEND_FORGE_API_URL": "https://forge.manus.ai",
+    "VITE_OAUTH_PORTAL_URL": "https://manus.im"
+  },
+  "template_id": "web-static",
+  "test_command": "pnpm test"
+}
