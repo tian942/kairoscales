@@ -178,24 +178,24 @@ export default function Confirm() {
   return (
     <div style={{ background: "#030800", color: "#fff", position: "relative" }}>
 
-      {/* Rocket ninja background — fixed, right side */}
+      {/* Rocket ninja — absolute, right side of hero, very visible */}
       <div
         aria-hidden="true"
         style={{
-          position: "fixed",
+          position: "absolute",
           top: 0,
           right: 0,
-          width: "60%",
+          width: "55%",
           height: "100vh",
           backgroundImage: `url(${ROCKET_BG})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center top",
+          backgroundSize: "contain",
+          backgroundPosition: "right center",
           backgroundRepeat: "no-repeat",
-          opacity: 0.35,
+          opacity: 0.92,
           pointerEvents: "none",
-          zIndex: 0,
-          maskImage: "linear-gradient(to left, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%)",
-          WebkitMaskImage: "linear-gradient(to left, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%)",
+          zIndex: 1,
+          maskImage: "linear-gradient(to left, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%)",
+          WebkitMaskImage: "linear-gradient(to left, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%)",
         }}
       />
 
@@ -370,7 +370,7 @@ export default function Confirm() {
       {/* ══════════════════════════════════════════════════════════════════════
           WAVE: dark → white
       ══════════════════════════════════════════════════════════════════════ */}
-      <WaveDarkToWhite />
+      <div style={{ position: "relative", zIndex: 2 }}><WaveDarkToWhite /></div>
 
       {/* ══════════════════════════════════════════════════════════════════════
           WHITE ZONE: FAQ Videos
@@ -437,7 +437,7 @@ export default function Confirm() {
       {/* ══════════════════════════════════════════════════════════════════════
           WAVE: white → dark
       ══════════════════════════════════════════════════════════════════════ */}
-      <WaveWhiteToDark />
+      <div style={{ position: "relative", zIndex: 2 }}><WaveWhiteToDark /></div>
 
       {/* ══════════════════════════════════════════════════════════════════════
           DARK ZONE: Final CTA
