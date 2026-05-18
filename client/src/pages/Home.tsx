@@ -530,9 +530,9 @@ function CtaSection() {
                 style={{ fontSize: "1.1rem", background: "#060d00", color: "#b8ff00" }}>
                 Book Your Strategy Call →
               </a>
-              <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="btn-outline-lime"
+              <a href="https://gamma.app/docs/Kairo-Wall-Of-Success-uuuocv1tb1866mi" target="_blank" rel="noopener noreferrer" className="btn-outline-lime"
                 style={{ fontSize: "1.1rem", borderColor: "#060d00", color: "#060d00" }}>
-                Watch Case Studies
+                See Case Studies
               </a>
             </div>
           </div>
