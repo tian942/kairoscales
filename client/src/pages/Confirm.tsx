@@ -7,7 +7,7 @@
 import { useEffect } from "react";
 
 const LOGO = "/images/logo.png";
-const ROCKET_BG = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663164421367/zUKWFxsjXLjesrrc.png";
+const ROCKET_BG = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663164421367/WizWxfzzzzRSdPPq.png";
 
 const BUBBLE_DATA = Array.from({ length: 6 }, (_, i) => ({
   id: i,
