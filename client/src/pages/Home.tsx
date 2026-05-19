@@ -202,16 +202,13 @@ function HeroSection() {
             FOR BUSINESSES DOING $100K–$300K/MONTH
           </div>
 
-          {/* Slogan */}
-          <p className="mb-6" style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "clamp(1rem,2vw,1.25rem)", color: "rgba(255,255,255,0.55)", fontStyle: "italic", letterSpacing: "0.01em" }}>
-            Advertising that's just weird enough to work.
-          </p>
-
-          <h1 className="font-display leading-none mb-6" style={{ fontSize: "clamp(3.5rem,8vw,6.5rem)", color: "#fff" }}>
-            PROVEN MARKETING<br />
-            <span style={{ color: "#b8ff00" }}>MISSIONS</span><br />
-            FOR HIGH-GROWTH<br />
-            BUSINESSES
+          <h1 className="font-display leading-none mb-6" style={{ fontSize: "clamp(2.2rem,5.5vw,4.2rem)", color: "#fff", lineHeight: 1.08 }}>
+            FOR HIGH-TICKET BUSINESSES DOING $100K–$300K/MONTH:<br />
+            <span style={{ color: "#b8ff00" }}>INSTALL A RISK-FREE PAID ACQUISITION SYSTEM</span><br />
+            THAT CONSISTENTLY TURNS COLD TRAFFIC INTO<br />
+            QUALIFIED SALES CALLS AND CLOSED DEALS,<br />
+            BY CONTROLLING WHO SEES YOUR OFFER,<br />
+            WHAT THEY SEE, AND HOW THEY CONVERT
           </h1>
 
           <p className="text-lg leading-relaxed mb-8" style={{ color: "rgba(255,255,255,0.75)", fontFamily: "'DM Sans',sans-serif", maxWidth: 520 }}>
@@ -262,9 +259,12 @@ function HowItWorksSection() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-14 reveal">
             <p className="font-mono-accent text-xs mb-3" style={{ color: "#b8ff00", letterSpacing: "0.2em" }}>INTELLIGENCE BRIEFING</p>
+            <p className="mb-4" style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "clamp(1rem,2vw,1.25rem)", color: "rgba(255,255,255,0.55)", fontStyle: "italic", letterSpacing: "0.01em" }}>
+              Advertising that's just weird enough to work.
+            </p>
             <h2 className="font-display" style={{ fontSize: "clamp(2.5rem,5vw,4rem)", color: "#fff" }}>
-              THERE IS A MORE EFFICIENT WAY TO<br />
-              <span style={{ color: "#b8ff00" }}>DOMINATE YOUR MARKET</span>
+              THERE IS A PROVEN WAY TO GUARANTEE<br />
+              <span style={{ color: "#b8ff00" }}>YOU DOMINATE YOUR MARKET</span>
             </h2>
           </div>
 
