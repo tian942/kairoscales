@@ -586,6 +586,37 @@ function CaseStudiesSection() {
             </div>
           </div>
 
+          {/* Google #1 + AI testimonial card */}
+          <div className="reveal mb-16">
+            <div className="rounded-2xl overflow-hidden" style={{ border: "3px solid #060d00", boxShadow: "6px 6px 0 #060d00", background: "#060d00" }}>
+              {/* Header badge */}
+              <div className="px-6 pt-6 pb-4 flex items-center gap-3">
+                <div className="font-display text-white" style={{ fontSize: "clamp(1.2rem,2.5vw,1.8rem)", lineHeight: 1.1 }}>
+                  RANKED <span style={{ color: "#b8ff00" }}>#1 ON GOOGLE</span> + RECOMMENDED BY AI
+                </div>
+                <div className="ml-auto font-mono-accent text-xs px-3 py-1 rounded-full" style={{ background: "#b8ff00", color: "#060d00", letterSpacing: "0.15em", whiteSpace: "nowrap" }}>45 DAYS</div>
+              </div>
+              <p className="px-6 pb-4 text-sm" style={{ color: "rgba(255,255,255,0.6)", fontFamily: "'DM Sans',sans-serif" }}>
+                Fast Grass Lawns — ranked #1 organically for "sod installation Manitowoc" and featured in Google's AI Overview, recommending them by name to every searcher in their area.
+              </p>
+              {/* Screenshots side by side */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-1">
+                <img
+                  src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663164421367/wjLeWEGdZbSDqZTG.png"
+                  alt="Fast Grass Lawns ranked #1 on Google for sod installation Manitowoc"
+                  className="w-full object-cover"
+                  style={{ borderTop: "2px solid rgba(255,255,255,0.08)" }}
+                />
+                <img
+                  src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663164421367/ZGdeFujQuxpjdbGZ.webp"
+                  alt="Fast Grass Lawns recommended in Google AI Overview"
+                  className="w-full object-cover"
+                  style={{ borderTop: "2px solid rgba(255,255,255,0.08)" }}
+                />
+              </div>
+            </div>
+          </div>
+
           {/* Featured case study videos */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
             {FEATURED_VIDEOS.map((v, i) => (
