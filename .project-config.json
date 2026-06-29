@@ -1,15 +1,22 @@
 {
   "build_command": "pnpm run build",
-  "capabilities": [],
+  "capabilities": [
+    "db",
+    "server",
+    "user"
+  ],
   "dev_command": "pnpm run dev",
-  "env_vars": {},
+  "env_vars": {
+    "DATABASE_URL": "mysql://34aPTCuu3RgdLcF.b77a9ab2642c:Iy7bGg2E3XBF8KG3oC4z@gateway03.us-east-1.prod.aws.tidbcloud.com:4000/5heSeJh2v29W3kmYZUe7Wn?ssl={\"rejectUnauthorized\":true}",
+    "DRIZZLE_DATABASE_URL": "mysql://34aPTCuu3RgdLcF.b77a9ab2642c:Iy7bGg2E3XBF8KG3oC4z@gateway03.us-east-1.prod.aws.tidbcloud.com:4000/5heSeJh2v29W3kmYZUe7Wn?ssl={\"rejectUnauthorized\":true}"
+  },
   "experiments": null,
   "git_remote": {
     "repo_url": "s3://vida-prod-gitrepo/webdev-git/310519663164421367/5heSeJh2v29W3kmYZUe7Wn",
-    "access_key_id": "ASIAZV3A2ECZGEY4UMZX",
-    "secret_access_key": "9PZCrEIFR/DVgIn7iy7teoSkh9BGCic5aGjxq4bJ",
-    "session_token": "IQoJb3JpZ2luX2VjEMb//////////wEaCXVzLWVhc3QtMSJHMEUCIQDH1EcQgTBXkRbv6DnuA7akdrfiGZk0hzhFT7nXvEqxSQIgU0fTGyKITrSX5wKP8axmo0AXV+0Uvsvz5pPY2IogauAq/wMIj///////////ARAEGgw2NjUzODYwOTg4NjYiDKB73rkRHyXMSQ/rmCrTA3HvnrP/JZCLMxkENvGUi7TGqWCw6ttDG9S1uTPc2aaC4wzqLG3w4ABPDXtrsperAZfDtkxyl9sBPG0bIy+2lUU3VmOIMHk3YGKSVBIvv2cR9L4ZjZFF4P6jNE2akBymod3CGuMVxBUzIMuZ+H9MpugQB1/otIsVRUpCe+lPpcCk/t3yCv9tBdfqCZU/N2ZsDsk281nzy65ZcaEnZwWH92x8zJRaL9WJ1atN14ef39m37CzI3qI3/RzP3fVMjM3QKZsqlsAERrH0gpaWEe9K6NJu7tr+WYm04RoD3VcgVMb7A/Ta9ojZDqXETu4YXjRoKnshI52lLpGQfyN7EcWQ0EQFJMtk70zKU/1zh8WCuXTbpoQvLREtvNQRFeULiUkVzjQHVhHZXeE10wscl5MkTnwk0YJwCj8K5y5srCuuy3nUWc6gEY9jdatzVfJB7o9O60a0KcZw+cZeF85oSNqvkuAbX3kjrk8tp3BNE/6aGN/q4bmi83beyQUSzXK62rZWUBI4TfS9UP+Yf+PlFUbUvmaTcB38x8ND3eSZO8UejSZsyEnIp3THUJJJQsGNWWziZ3SVdZpKk4wkNvTEf4WzCDe+OTto+zx0l87ZH/eK/lILaY/6MNzkgtIGOp0BJIsW/1vm9lvvjTyyspFGthoow5iJhEqHO0UC1bkV6UcHSIWrI+OcMsWZHLQRLnrWSt7hfkKePuwBkNcBytYapUVdhhwwE+NySs8YbW7XOUONFtBHGsxuYA0INu/jCgo0rjya5DcgVJuFPteaVLSpNl1qRaBzJVlZ215wi1vcWztksqCX2hDlS31vJG6j5pT6TKk6ctV0rcWMM0tYAg==",
-    "expiration": "2026-06-28T17:34:20.000Z",
+    "access_key_id": "ASIAZV3A2ECZJRSPTVUO",
+    "secret_access_key": "Y9XXRRkyLgkIeAffMii4T7oug/oDs5yrSgCXKsJ2",
+    "session_token": "IQoJb3JpZ2luX2VjENv//////////wEaCXVzLWVhc3QtMSJHMEUCIQCzAB3QcHTwsvGVagupiOzwuei0G4sQtrhhQ+3aTD948wIgc2AfutYiY4RxpkInFZbk/WQRKQGWVZmV68ZXyCQcRPUq/wMIo///////////ARAEGgw2NjUzODYwOTg4NjYiDOrD44YM6L/7CT6x5CrTAxIRjFMYTuauxdtEHOzOgpHjEFgyTM4n6Wj+ekLISCYkKUw5Vrx5fZbIkk8uWeWiwZDwzqscsjysqBdiIBA64JSNY9BuAfVXFLov2LZlxiEUPcThXlIzHWc6TBSVVA5J4hMqlEVfdvhVuKqJdu4y3czgAA2lajOLBnqAGLAdruqQL9G5wxGy9z7IupEsviifkpdn2MFP8OpnT2ukuBYpRltkJuD+ykiTtTWW3aCmG0ig5hrXciSxMeRoWo7qk1xlEeg4OFAyFpU1uZXlJwuULNoIfvewNaYdOROuGjudUfpFqjdOuR40MLVxnfhZE8WFO/cyaWOH+89yT3TlGd8D1Bz/ZtJ5UKW9gUqJbNP5OdoEQKp3JeFLt0berIV6OXav0sHpyvkDBhZy/E7ZzAHpFh0y9rOKs/97xogpmF5rg6/7E0upIpdBThhVQlMszMlvqAo12Bo0MnDXBaPN2J88CnCbRey4h0B3K+SH77LQ0qB8CgSGiKKKPkZ5Bu8qRlVOz/8gPM0WLo4W+bP8i0XVcovquLrh+5t60RflWaoFBL65XSAGGiKQmksGjPOLDjlo/qTDue9hruZBGTEikgFGFsh8PNtvU1Wzp7vzK3B+aaMN2W/qMISoh9IGOp0BYUJ7oV+pxWpcIng8JcB1pdMP0X2BDxPE2tJde22nJm2u7EdnqfhShw/4Bk91OYece+trGn4DcHA45NqGzYIi3QAs59EJuAEohdJyJ4zt6rthlJTu8aTD+9+lrbvu4MFWyUjZtqw7nqp5jifTiksfaph76y9Gk//Y1GIvA/3fIXppWQw6LL0h85M85QxZnsyCW03LO37LxWfR5ZI2tQ==",
+    "expiration": "2026-06-29T14:10:12.000Z",
     "backend": "GIT_BACKEND_S3"
   },
   "name": "kairo-website",
@@ -25,7 +32,7 @@
     "VITE_ANALYTICS_ENDPOINT": "https://manus-analytics.com",
     "VITE_ANALYTICS_WEBSITE_ID": "f09c38cb-bf81-4ffd-8d6e-7a460c4791b8",
     "VITE_APP_ID": "5heSeJh2v29W3kmYZUe7Wn",
-    "VITE_APP_LOGO": "",
+    "VITE_APP_LOGO": "https://files.manuscdn.com/user_upload_by_module/web_dev_logo/310519663164421367/NnQRCltVRtYpBSRz.png",
     "VITE_APP_TITLE": "Kairo Marketing — Space Ninja Agency",
     "VITE_FRONTEND_FORGE_API_KEY": "UJmU7YT7Mu36VV8Jn3jGsM",
     "VITE_FRONTEND_FORGE_API_URL": "https://forge.manus.ai",

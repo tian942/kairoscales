@@ -2,14 +2,13 @@
  * KAIRO MARKETING — STEALTH OPERATOR DESIGN (v3)
  * Hero: Full-bleed cartoon space ninja background + Wistia VSL floating below CTA
  * Navbar: Kairo logo image + scribbled "Marketing" text
- * All buttons → Calendly: https://calendly.com/kairoscales/30min
+ * All primary CTAs → LeadPopup (collect lead → Calendly)
  * Illustrations: Hand-drawn ink cartoon style (Megalodon-inspired)
  * Sections: Alternating dark/white with wavy SVG dividers
  */
 
-import { useEffect } from "react";
-
-const CALENDLY = "https://calendly.com/kairoscales/30min";
+import { useEffect, useState } from "react";
+import { LeadPopup } from "@/components/LeadPopup";
 
 const IMAGES = {
   hero:      "/images/hero.jpg",
@@ -22,6 +21,8 @@ const IMAGES = {
   logo:      "/images/logo.png",
   dashboard: "/images/dashboard.jpg",
 };
+
+const CTA_LABEL = "First 10 AI Optimised Ads On Us →";
 
 function useScrollReveal() {
   useEffect(() => {
@@ -50,7 +51,6 @@ function useWistia() {
       s2.type = "module";
       document.head.appendChild(s2);
     }
-    // Inject wistia swatch style
     if (!document.querySelector("style[data-wistia]")) {
       const style = document.createElement("style");
       style.setAttribute("data-wistia", "true");
@@ -100,7 +100,7 @@ function StarField() {
 
 // ─── Navbar ───────────────────────────────────────────────────────────────────
 
-function Navbar() {
+function Navbar({ onOpenPopup }: { onOpenPopup: () => void }) {
   const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   return (
     <nav className="fixed top-0 left-0 right-0 z-50" style={{ background: "rgba(6,13,0,0.80)", backdropFilter: "blur(14px)", borderBottom: "1px solid rgba(184,255,0,0.12)" }}>
@@ -135,9 +135,9 @@ function Navbar() {
           ))}
         </div>
 
-        <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="btn-white" style={{ padding: "0.5rem 1.5rem", fontSize: "0.9rem" }}>
-          Book a Call →
-        </a>
+        <button onClick={onOpenPopup} className="btn-lime" style={{ padding: "0.5rem 1.25rem", fontSize: "0.85rem" }}>
+          {CTA_LABEL}
+        </button>
       </div>
     </nav>
   );
@@ -149,7 +149,6 @@ function WistiaVSL() {
   useWistia();
   return (
     <div className="reveal" style={{ transitionDelay: "200ms", maxWidth: 820, margin: "0 auto" }}>
-      {/* Label above video */}
       <p
         style={{
           fontFamily: "'Space Mono', monospace",
@@ -163,7 +162,6 @@ function WistiaVSL() {
       >
         ⚠ IMPORTANT: BREAKDOWN OF WHAT WE DO FOR YOU
       </p>
-      {/* Video player — clean, no border */}
       <div
         style={{
           borderRadius: "1rem",
@@ -181,7 +179,7 @@ function WistiaVSL() {
 
 // ─── SECTION 1: Hero ─────────────────────────────────────────────────────────
 
-function HeroSection() {
+function HeroSection({ onOpenPopup }: { onOpenPopup: () => void }) {
   return (
     <section id="hero" className="relative min-h-screen flex items-start overflow-hidden" style={{ paddingTop: 64 }}>
       {/* Full-bleed background */}
@@ -214,9 +212,9 @@ function HeroSection() {
           </p>
 
           <div className="flex flex-wrap gap-4 mb-10">
-            <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="btn-lime" style={{ fontSize: "1rem" }}>
-              Begin Your Mission →
-            </a>
+            <button onClick={onOpenPopup} className="btn-lime" style={{ fontSize: "1rem" }}>
+              {CTA_LABEL}
+            </button>
             <button onClick={() => document.getElementById("how-it-works")?.scrollIntoView({ behavior: "smooth" })}
               className="btn-outline-lime" style={{ fontSize: "1rem" }}>
               See How It Works
@@ -291,7 +289,7 @@ function HowItWorksSection() {
 
 // ─── SECTION 3 (WHITE): Services ─────────────────────────────────────────────
 
-function ServicesSection() {
+function ServicesSection({ onOpenPopup }: { onOpenPopup: () => void }) {
   const services = [
     { title: "FUNNEL ARCHITECTURE", image: IMAGES.funnel, desc: "We design and build your entire revenue machine from scratch — landing pages, VSLs, thank-you pages, and every micro-step in between that turns cold traffic into closed deals." },
     { title: "AD WARFARE",          image: IMAGES.ads,    desc: "We've mastered paid advertising across Meta, Google, and YouTube. Our content advertising strategies leverage reels, shorts, and long-form video to drive qualified traffic that converts at scale." },
@@ -322,10 +320,10 @@ function ServicesSection() {
                 <div className="p-6">
                   <h3 className="font-display mb-3" style={{ fontSize: "1.4rem", color: "#fff" }}>{svc.title}</h3>
                   <p className="text-sm leading-relaxed mb-4" style={{ color: "rgba(255,255,255,0.58)", fontFamily: "'DM Sans',sans-serif" }}>{svc.desc}</p>
-                  <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="text-sm font-semibold" style={{ color: "#b8ff00", fontFamily: "'DM Sans',sans-serif" }}
+                  <button onClick={onOpenPopup} className="text-sm font-semibold" style={{ color: "#b8ff00", fontFamily: "'DM Sans',sans-serif", background: "none", border: "none", cursor: "pointer", padding: 0 }}
                     onMouseEnter={(e) => (e.currentTarget.style.color = "#d4ff40")}
                     onMouseLeave={(e) => (e.currentTarget.style.color = "#b8ff00")}
-                  >Book a Call →</a>
+                  >{CTA_LABEL}</button>
                 </div>
               </div>
             ))}
@@ -339,7 +337,7 @@ function ServicesSection() {
 
 // ─── SECTION 4 (DARK): Why Kairo + Rocket ────────────────────────────────────
 
-function WhyKairoSection() {
+function WhyKairoSection({ onOpenPopup }: { onOpenPopup: () => void }) {
   return (
     <>
       <section id="why-kairo" className="relative py-24 overflow-hidden" style={{ background: "#060d00" }}>
@@ -358,7 +356,7 @@ function WhyKairoSection() {
               <p className="text-base leading-relaxed mb-8" style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'DM Sans',sans-serif", maxWidth: 500 }}>
                 Our clients are breaking through $300K/month ceilings using our proven content advertising strategies combined with precision conversion mechanisms.
               </p>
-              <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="btn-lime" style={{ fontSize: "1rem" }}>Book a Strategy Call →</a>
+              <button onClick={onOpenPopup} className="btn-lime" style={{ fontSize: "1rem" }}>{CTA_LABEL}</button>
             </div>
 
             <div className="reveal flex justify-center lg:justify-end" style={{ transitionDelay: "150ms" }}>
@@ -380,7 +378,6 @@ function ResultsSection() {
     {
       icon: (
         <svg viewBox="0 0 48 48" width="44" height="44" fill="none" xmlns="http://www.w3.org/2000/svg">
-          {/* Skull — hand-drawn cartoon style */}
           <ellipse cx="24" cy="20" rx="14" ry="13" stroke="#b8ff00" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
           <path d="M14 28 Q12 36 16 38 L32 38 Q36 36 34 28" stroke="#b8ff00" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
           <line x1="20" y1="38" x2="20" y2="33" stroke="#b8ff00" strokeWidth="2" strokeLinecap="round"/>
@@ -396,7 +393,6 @@ function ResultsSection() {
     {
       icon: (
         <svg viewBox="0 0 48 48" width="44" height="44" fill="none" xmlns="http://www.w3.org/2000/svg">
-          {/* Slot machine / casino */}
           <rect x="8" y="10" width="32" height="28" rx="4" stroke="#b8ff00" strokeWidth="2.5" fill="none"/>
           <rect x="13" y="15" width="7" height="12" rx="2" stroke="#b8ff00" strokeWidth="2" fill="none"/>
           <rect x="20.5" y="15" width="7" height="12" rx="2" stroke="#b8ff00" strokeWidth="2" fill="none"/>
@@ -414,7 +410,6 @@ function ResultsSection() {
     {
       icon: (
         <svg viewBox="0 0 48 48" width="44" height="44" fill="none" xmlns="http://www.w3.org/2000/svg">
-          {/* Flame */}
           <path d="M24 42 C14 42 10 34 14 26 C16 22 18 20 18 16 C20 20 20 22 24 24 C22 18 26 12 28 8 C32 16 36 20 34 30 C36 28 37 24 36 20 C40 26 40 36 34 40 C32 42 28 43 24 42 Z" stroke="#b8ff00" strokeWidth="2.5" strokeLinejoin="round" fill="none"/>
           <path d="M22 36 C18 34 17 30 20 27 C21 30 23 31 24 33 C25 31 25 29 24 27 C27 29 28 33 26 36 C25 37 23 37 22 36 Z" stroke="#b8ff00" strokeWidth="1.5" strokeLinejoin="round" fill="none"/>
         </svg>
@@ -425,7 +420,6 @@ function ResultsSection() {
     {
       icon: (
         <svg viewBox="0 0 48 48" width="44" height="44" fill="none" xmlns="http://www.w3.org/2000/svg">
-          {/* Exhausted face */}
           <circle cx="24" cy="24" r="16" stroke="#b8ff00" strokeWidth="2.5" fill="none"/>
           <path d="M16 18 Q18 15 20 18" stroke="#b8ff00" strokeWidth="2" strokeLinecap="round" fill="none"/>
           <path d="M28 18 Q30 15 32 18" stroke="#b8ff00" strokeWidth="2" strokeLinecap="round" fill="none"/>
@@ -441,7 +435,6 @@ function ResultsSection() {
     {
       icon: (
         <svg viewBox="0 0 48 48" width="44" height="44" fill="none" xmlns="http://www.w3.org/2000/svg">
-          {/* Clock / alarm */}
           <circle cx="24" cy="26" r="14" stroke="#b8ff00" strokeWidth="2.5" fill="none"/>
           <path d="M24 16 L24 26 L31 30" stroke="#b8ff00" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
           <path d="M10 14 Q8 10 12 8" stroke="#b8ff00" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
@@ -455,7 +448,6 @@ function ResultsSection() {
     {
       icon: (
         <svg viewBox="0 0 48 48" width="44" height="44" fill="none" xmlns="http://www.w3.org/2000/svg">
-          {/* Downward chart */}
           <rect x="6" y="8" width="36" height="28" rx="3" stroke="#b8ff00" strokeWidth="2.5" fill="none"/>
           <path d="M10 14 L18 20 L26 16 L38 28" stroke="#b8ff00" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
           <path d="M32 28 L38 28 L38 22" stroke="#b8ff00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -497,7 +489,7 @@ function ResultsSection() {
 
 // ─── SECTION 6 (DARK): Operator + Meditating Ninja ───────────────────────────
 
-function OperatorSection() {
+function OperatorSection({ onOpenPopup }: { onOpenPopup: () => void }) {
   return (
     <>
       <section className="relative py-24 overflow-hidden" style={{ background: "#060d00" }}>
@@ -519,7 +511,7 @@ function OperatorSection() {
               <p className="text-base leading-relaxed mb-8" style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'DM Sans',sans-serif" }}>
                 Our clients are breaking through ceilings they thought were permanent — using content advertising strategies their competitors said would "never work."
               </p>
-              <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="btn-lime" style={{ fontSize: "1rem" }}>Begin Your Mission →</a>
+              <button onClick={onOpenPopup} className="btn-lime" style={{ fontSize: "1rem" }}>{CTA_LABEL}</button>
             </div>
           </div>
         </div>
@@ -589,7 +581,6 @@ function CaseStudiesSection() {
           {/* Google #1 + AI testimonial card */}
           <div className="reveal mb-16">
             <div className="rounded-2xl overflow-hidden" style={{ border: "3px solid #060d00", boxShadow: "6px 6px 0 #060d00", background: "#060d00" }}>
-              {/* Header badge */}
               <div className="px-6 pt-6 pb-4 flex items-center gap-3">
                 <div className="font-display text-white" style={{ fontSize: "clamp(1.2rem,2.5vw,1.8rem)", lineHeight: 1.1 }}>
                   RANKED <span style={{ color: "#b8ff00" }}>#1 ON GOOGLE</span> + RECOMMENDED BY AI
@@ -599,7 +590,6 @@ function CaseStudiesSection() {
               <p className="px-6 pb-4 text-sm" style={{ color: "rgba(255,255,255,0.6)", fontFamily: "'DM Sans',sans-serif" }}>
                 Fast Grass Lawns — ranked #1 organically for "sod installation Manitowoc" and featured in Google's AI Overview, recommending them by name to every searcher in their area.
               </p>
-              {/* Screenshots side by side */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-1">
                 <img
                   src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663164421367/wjLeWEGdZbSDqZTG.png"
@@ -653,7 +643,7 @@ function CaseStudiesSection() {
             </div>
           </div>
 
-          {/* CTA under case studies */}
+          {/* CTA under case studies — this one goes directly to the wall of success, not Calendly */}
           <div className="reveal text-center mt-12">
             <a href="https://gamma.app/docs/Kairo-Wall-Of-Success-uuuocv1tb1866mi" target="_blank" rel="noopener noreferrer"
               className="btn-lime" style={{ background: "#060d00", color: "#b8ff00", fontSize: "1rem" }}>
@@ -667,9 +657,9 @@ function CaseStudiesSection() {
   );
 }
 
-// ─── SECTION 8 (DARK): Final CTA ────────────────────────────────────────────
+// ─── SECTION 8: Final CTA ────────────────────────────────────────────────────
 
-function CtaSection() {
+function CtaSection({ onOpenPopup }: { onOpenPopup: () => void }) {
   return (
     <>
       <section style={{ background: "#ffffff" }}>
@@ -683,10 +673,10 @@ function CtaSection() {
               Get better paid advertising results at scale with Kairo Marketing. We only take on 4 new clients per month — if you're serious about scaling, don't wait.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="btn-lime"
+              <button onClick={onOpenPopup} className="btn-lime"
                 style={{ fontSize: "1.1rem", background: "#060d00", color: "#b8ff00" }}>
-                Book Your Strategy Call →
-              </a>
+                {CTA_LABEL}
+              </button>
               <a href="https://gamma.app/docs/Kairo-Wall-Of-Success-uuuocv1tb1866mi" target="_blank" rel="noopener noreferrer" className="btn-outline-lime"
                 style={{ fontSize: "1.1rem", borderColor: "#060d00", color: "#060d00" }}>
                 See Case Studies
@@ -702,7 +692,7 @@ function CtaSection() {
 
 // ─── Footer (DARK) ────────────────────────────────────────────────────────────
 
-function Footer() {
+function Footer({ onOpenPopup }: { onOpenPopup: () => void }) {
   return (
     <footer className="relative overflow-hidden" style={{ background: "#030800" }}>
       <StarField />
@@ -729,18 +719,22 @@ function Footer() {
                 { label: "Services",     href: "/#services" },
                 { label: "Why Kairo",    href: "/#why-kairo" },
                 { label: "Results",      href: "/#case-studies" },
-                { label: "Book a Call",  href: CALENDLY },
               ].map((link) => (
                 <a key={link.label}
                   href={link.href}
-                  target={link.href.startsWith("http") ? "_blank" : undefined}
-                  rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
                   className="text-sm transition-colors duration-200"
                   style={{ color: "rgba(255,255,255,0.45)", fontFamily: "'DM Sans',sans-serif" }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = "#b8ff00")}
                   onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.45)")}
                 >{link.label}</a>
               ))}
+              <button
+                onClick={onOpenPopup}
+                className="text-sm text-left transition-colors duration-200"
+                style={{ color: "rgba(255,255,255,0.45)", fontFamily: "'DM Sans',sans-serif", background: "none", border: "none", cursor: "pointer", padding: 0 }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "#b8ff00")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.45)")}
+              >Book a Call</button>
             </div>
           </div>
 
@@ -786,18 +780,23 @@ function Footer() {
 
 export default function Home() {
   useScrollReveal();
+  const [popupOpen, setPopupOpen] = useState(false);
+  const openPopup = () => setPopupOpen(true);
+  const closePopup = () => setPopupOpen(false);
+
   return (
     <div style={{ background: "#060d00" }}>
-      <Navbar />
-      <HeroSection />
+      <LeadPopup isOpen={popupOpen} onClose={closePopup} />
+      <Navbar onOpenPopup={openPopup} />
+      <HeroSection onOpenPopup={openPopup} />
       <HowItWorksSection />
-      <ServicesSection />
-      <WhyKairoSection />
+      <ServicesSection onOpenPopup={openPopup} />
+      <WhyKairoSection onOpenPopup={openPopup} />
       <ResultsSection />
-      <OperatorSection />
+      <OperatorSection onOpenPopup={openPopup} />
       <CaseStudiesSection />
-      <CtaSection />
-      <Footer />
+      <CtaSection onOpenPopup={openPopup} />
+      <Footer onOpenPopup={openPopup} />
     </div>
   );
 }
