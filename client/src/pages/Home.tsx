@@ -22,7 +22,7 @@ const IMAGES = {
   dashboard: "/images/dashboard.jpg",
 };
 
-const CTA_LABEL = "First 10 AI Optimised Ads On Us →";
+const CTA_LABEL = "Hire A First Strategist On Us →";
 
 function useScrollReveal() {
   useEffect(() => {

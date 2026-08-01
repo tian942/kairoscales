@@ -120,7 +120,7 @@ export function LeadPopup({ isOpen, onClose }: LeadPopupProps) {
                 marginBottom: "0.5rem",
               }}
             >
-              ⚡ CLAIM YOUR FREE ADS
+              ⚡ HIRE YOUR FIRST STRATEGIST
             </p>
             <h2
               style={{
@@ -131,8 +131,8 @@ export function LeadPopup({ isOpen, onClose }: LeadPopupProps) {
                 letterSpacing: "0.02em",
               }}
             >
-              FIRST 10 AI OPTIMISED<br />
-              <span style={{ color: "#b8ff00" }}>ADS ON US</span>
+              HIRE A FIRST
+              <br /><span style={{ color: "#b8ff00" }}>STRATEGIST ON US</span>
             </h2>
             <p
               style={{
@@ -142,7 +142,7 @@ export function LeadPopup({ isOpen, onClose }: LeadPopupProps) {
                 marginTop: "0.5rem",
               }}
             >
-              Tell us about your business so we can prepare your ads before the call.
+              Tell us about your business so we can match you with the right strategist.
             </p>
           </div>
 
@@ -199,7 +199,7 @@ export function LeadPopup({ isOpen, onClose }: LeadPopupProps) {
               {/* OFFER */}
               <FieldBlock
                 label="YOUR OFFER IN 1 LINE"
-                hint="so we can start writing your ads now"
+                hint="so we can match you with the right specialist"
                 error={errors.offer}
               >
                 <textarea
@@ -246,7 +246,7 @@ export function LeadPopup({ isOpen, onClose }: LeadPopupProps) {
                 onMouseDown={(e) => { e.currentTarget.style.transform = "scale(0.97)"; }}
                 onMouseUp={(e) => { e.currentTarget.style.transform = "scale(1.02)"; }}
               >
-                {submitLead.isPending ? "BOOKING YOUR CALL..." : "CLAIM MY FREE ADS + BOOK CALL →"}
+                {submitLead.isPending ? "BOOKING YOUR CALL..." : "HIRE MY FIRST STRATEGIST + BOOK CALL →"}
               </button>
 
               <p
@@ -258,7 +258,7 @@ export function LeadPopup({ isOpen, onClose }: LeadPopupProps) {
                   marginTop: "-0.25rem",
                 }}
               >
-                No commitment. We'll prepare your ads before the call.
+                No commitment. We'll match you with a strategist before the call.
               </p>
             </div>
           </form>
