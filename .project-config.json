@@ -13,10 +13,10 @@
   "experiments": null,
   "git_remote": {
     "repo_url": "s3://vida-prod-gitrepo/webdev-git/310519663164421367/5heSeJh2v29W3kmYZUe7Wn",
-    "access_key_id": "ASIAZV3A2ECZJRSPTVUO",
-    "secret_access_key": "Y9XXRRkyLgkIeAffMii4T7oug/oDs5yrSgCXKsJ2",
-    "session_token": "IQoJb3JpZ2luX2VjENv//////////wEaCXVzLWVhc3QtMSJHMEUCIQCzAB3QcHTwsvGVagupiOzwuei0G4sQtrhhQ+3aTD948wIgc2AfutYiY4RxpkInFZbk/WQRKQGWVZmV68ZXyCQcRPUq/wMIo///////////ARAEGgw2NjUzODYwOTg4NjYiDOrD44YM6L/7CT6x5CrTAxIRjFMYTuauxdtEHOzOgpHjEFgyTM4n6Wj+ekLISCYkKUw5Vrx5fZbIkk8uWeWiwZDwzqscsjysqBdiIBA64JSNY9BuAfVXFLov2LZlxiEUPcThXlIzHWc6TBSVVA5J4hMqlEVfdvhVuKqJdu4y3czgAA2lajOLBnqAGLAdruqQL9G5wxGy9z7IupEsviifkpdn2MFP8OpnT2ukuBYpRltkJuD+ykiTtTWW3aCmG0ig5hrXciSxMeRoWo7qk1xlEeg4OFAyFpU1uZXlJwuULNoIfvewNaYdOROuGjudUfpFqjdOuR40MLVxnfhZE8WFO/cyaWOH+89yT3TlGd8D1Bz/ZtJ5UKW9gUqJbNP5OdoEQKp3JeFLt0berIV6OXav0sHpyvkDBhZy/E7ZzAHpFh0y9rOKs/97xogpmF5rg6/7E0upIpdBThhVQlMszMlvqAo12Bo0MnDXBaPN2J88CnCbRey4h0B3K+SH77LQ0qB8CgSGiKKKPkZ5Bu8qRlVOz/8gPM0WLo4W+bP8i0XVcovquLrh+5t60RflWaoFBL65XSAGGiKQmksGjPOLDjlo/qTDue9hruZBGTEikgFGFsh8PNtvU1Wzp7vzK3B+aaMN2W/qMISoh9IGOp0BYUJ7oV+pxWpcIng8JcB1pdMP0X2BDxPE2tJde22nJm2u7EdnqfhShw/4Bk91OYece+trGn4DcHA45NqGzYIi3QAs59EJuAEohdJyJ4zt6rthlJTu8aTD+9+lrbvu4MFWyUjZtqw7nqp5jifTiksfaph76y9Gk//Y1GIvA/3fIXppWQw6LL0h85M85QxZnsyCW03LO37LxWfR5ZI2tQ==",
-    "expiration": "2026-06-29T14:10:12.000Z",
+    "access_key_id": "ASIAZV3A2ECZASFFSIN4",
+    "secret_access_key": "FiSFYGi4qSzuyN7lIDGp28CADxetgNtnblqTFgAx",
+    "session_token": "IQoJb3JpZ2luX2VjEP7//////////wEaCXVzLWVhc3QtMSJGMEQCIDvni21KR4wDOfm6zLboIQc633pOEz37FhhhU7Q9xUn9AiBPdAalyA+Wfyl/gxwheWuBHVqYVlenjhyXGo/hGjQYmir/AwjH//////////8BEAQaDDY2NTM4NjA5ODg2NiIMnLGNHF++3XwSYBouKtMDg7BhC4PQ7Bkc5CPZmYfJ7sJoIshRRsSp9dbfiVNWcPlTevHPsFaagSgVYLGseLXJ09C9smxyCKPv60HdQb2vGxXUJdF+dj6QkW3dfxtMTf+EBzXzC5PMuccv6M5AVZp3mUfzX4NLU59ZNbouMAT8OVHDLzlIP0x7R0PMvYKhqxHkqW1k46dyb0y5mt05CoGZFyP+QvBKljfnRfO8nBTz2pUVq95+umc5oHXGyelF5GeJ1CkUCubjvJ9D75sNF+TcKULC0MTH7edSGctF07rWV9YD4VvbT9XHnLOZF8pVp+qhtiGMfRfYpMGZzZ5kBgRq0adAnYomhgVEMUhySVpjafjujee2vopCutMA+PwmI0jfahZ60YgW8tL0sjzvkUiWrKGoWb2GqsHheaZPgptBZgTP+xuwZpOz8OFIOTNyEVj4T+Jx849pkfMNKS4q08P8cKmhrThsmAdt1jBDIy9FlGcK3UgWluLDczidb4/L/adv3LROCI3L6Skv59Nl937gU5mLYBjyPn0g93YmmaTTLPxG033VXhAnpEZXJAsLNPYhQ1IqU19Sc/Sjmi3z2hXMCoUmeOq3dXarSTEoGy82YsKlA8FevMOLofHqwHRcSQ7osvQwrfG30wY6ngGGsA+oBwIFPHnpMzD+sAPdwuvoVCatH4YRnsF8gUtjJR56EJckuartVKYupNHl6QFdwydbrLDT55t9rVBiRCdb/RrZmYnveAn+XdcCKcEPIqx2DlJv/dWXSVV4PE8VxvY2Lim6IUEe7T0azZI7Xe+skl1X4PwAonSRJRU7+fb18VLVyvAUbE+cGbWRcy94b//FuYsZZVNC/4MoUaPE0w==",
+    "expiration": "2026-08-02T01:46:21.000Z",
     "backend": "GIT_BACKEND_S3"
   },
   "name": "kairo-website",

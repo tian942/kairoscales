@@ -201,14 +201,14 @@ function HeroSection({ onOpenPopup }: { onOpenPopup: () => void }) {
           </div>
 
           <h1 className="font-display leading-none mb-6" style={{ fontSize: "clamp(2.8rem,6vw,5rem)", color: "#fff", lineHeight: 1.05 }}>
-            <span style={{ color: "#b8ff00" }}>INSTALL A RISK-FREE PAID ACQUISITION SYSTEM</span><br />
-            THAT CONSISTENTLY TURNS COLD TRAFFIC INTO DEALS
+            <span style={{ color: "#b8ff00" }}>INSTALL CLIENT SOURCING SYSTEM</span><br />
+            AND LAND YOUR FIRST NEW CLIENT WITHIN 14 DAYS<br />
+            OR WE WORK UNTIL YOU DO
           </h1>
 
-          <p className="text-lg leading-relaxed mb-8" style={{ color: "rgba(255,255,255,0.75)", fontFamily: "'DM Sans',sans-serif", maxWidth: 520 }}>
-            Kairo Marketing scales your entire end-to-end paid funnel{" "}
-            <strong style={{ color: "#fff" }}>BY CONTROLLING WHO SEES YOUR OFFER,<br />
-            WHAT THEY SEE, AND HOW THEY CONVERT</strong>
+          <p className="text-lg leading-relaxed mb-8" style={{ color: "rgba(255,255,255,0.75)", fontFamily: "'DM Sans',sans-serif", maxWidth: 560 }}>
+            The only client sourcing system that lands your first client in 14 days by hiring, training, and managing Partner Acquisition Specialists who do the outreach for you —{" "}
+            <strong style={{ color: "#fff" }}>or we work for free until you do.</strong>
           </p>
 
           <div className="flex flex-wrap gap-4 mb-10">
