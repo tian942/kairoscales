@@ -1,9 +1,8 @@
 /**
- * KAIRO MARKETING — STEALTH OPERATOR DESIGN (v3)
- * Hero: Full-bleed cartoon space ninja background + Wistia VSL floating below CTA
+ * KAIRO MARKETING — STEALTH OPERATOR DESIGN (v4)
+ * Hero: Black/lime space theme, CSS star field + Wistia VSL floating below CTA
  * Navbar: Kairo logo image + scribbled "Marketing" text
  * All primary CTAs → LeadPopup (collect lead → Calendly)
- * Illustrations: Hand-drawn ink cartoon style (Megalodon-inspired)
  * Sections: Alternating dark/white with wavy SVG dividers
  */
 
@@ -11,13 +10,10 @@ import { useEffect, useState } from "react";
 import { LeadPopup } from "@/components/LeadPopup";
 
 const IMAGES = {
-  hero:      "/images/hero.jpg",
-  feature:   "/images/feature.jpg",
   funnel:    "/images/funnel.jpg",
   ads:       "/images/ads.jpg",
   vsl:       "/images/vsl.jpg",
   emails:    "/images/emails.jpg",
-  rocket:    "/images/rocket.jpg",
   logo:      "/images/logo.png",
   dashboard: "/images/dashboard.jpg",
 };
@@ -181,14 +177,7 @@ function WistiaVSL() {
 
 function HeroSection({ onOpenPopup }: { onOpenPopup: () => void }) {
   return (
-    <section id="hero" className="relative min-h-screen flex items-start overflow-hidden" style={{ paddingTop: 64 }}>
-      {/* Full-bleed background */}
-      <div className="absolute inset-0">
-        <img src={IMAGES.hero} alt="" className="w-full h-full object-cover" style={{ objectPosition: "65% center" }} />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(6,13,0,0.93) 0%, rgba(6,13,0,0.78) 45%, rgba(6,13,0,0.3) 72%, rgba(6,13,0,0.05) 100%)" }} />
-        <div className="absolute bottom-0 left-0 right-0 h-48" style={{ background: "linear-gradient(to bottom, transparent, #060d00)" }} />
-      </div>
-
+    <section id="hero" className="relative min-h-screen flex items-start overflow-hidden" style={{ paddingTop: 64, background: "#060d00" }}>
       <StarField />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16">
@@ -335,34 +324,27 @@ function ServicesSection({ onOpenPopup }: { onOpenPopup: () => void }) {
   );
 }
 
-// ─── SECTION 4 (DARK): Why Kairo + Rocket ────────────────────────────────────
+// ─── SECTION 4 (DARK): Why Kairo ─────────────────────────────────────────────
 
 function WhyKairoSection({ onOpenPopup }: { onOpenPopup: () => void }) {
   return (
     <>
       <section id="why-kairo" className="relative py-24 overflow-hidden" style={{ background: "#060d00" }}>
         <StarField />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="reveal">
-              <p className="font-mono-accent text-xs mb-4" style={{ color: "#b8ff00", letterSpacing: "0.2em" }}>THE KAIRO ADVANTAGE</p>
-              <h2 className="font-display mb-6" style={{ fontSize: "clamp(2.5rem,5vw,4rem)", color: "#fff", lineHeight: 1.05 }}>
-                WITH FAILING AGENCIES<br />ASKING FOR MORE,<br />
-                <span style={{ color: "#b8ff00" }}>BUSINESSES CHOOSE KAIRO</span><br />FOR RESULTS.
-              </h2>
-              <p className="text-base leading-relaxed mb-5" style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'DM Sans',sans-serif", maxWidth: 500 }}>
-                Traditional agencies promise the world, deliver excuses, and ask for more budget. We built Kairo differently. We only win when you win — every decision we make is engineered for your revenue growth, not our retainer.
-              </p>
-              <p className="text-base leading-relaxed mb-8" style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'DM Sans',sans-serif", maxWidth: 500 }}>
-                Our clients are breaking through $300K/month ceilings using our proven content advertising strategies combined with precision conversion mechanisms.
-              </p>
-              <button onClick={onOpenPopup} className="btn-lime" style={{ fontSize: "1rem" }}>{CTA_LABEL}</button>
-            </div>
-
-            <div className="reveal flex justify-center lg:justify-end" style={{ transitionDelay: "150ms" }}>
-              <img src={IMAGES.rocket} alt="Space Ninja on Rocket" className="animate-float"
-                style={{ width: "100%", maxWidth: 600, objectFit: "contain", filter: "drop-shadow(0 0 40px rgba(184,255,0,0.2))" }} />
-            </div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+          <div className="reveal">
+            <p className="font-mono-accent text-xs mb-4" style={{ color: "#b8ff00", letterSpacing: "0.2em" }}>THE KAIRO ADVANTAGE</p>
+            <h2 className="font-display mb-6" style={{ fontSize: "clamp(2.5rem,5vw,4rem)", color: "#fff", lineHeight: 1.05 }}>
+              WITH FAILING AGENCIES<br />ASKING FOR MORE,<br />
+              <span style={{ color: "#b8ff00" }}>BUSINESSES CHOOSE KAIRO</span><br />FOR RESULTS.
+            </h2>
+            <p className="text-base leading-relaxed mb-5 mx-auto" style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'DM Sans',sans-serif", maxWidth: 560 }}>
+              Traditional agencies promise the world, deliver excuses, and ask for more budget. We built Kairo differently. We only win when you win — every decision we make is engineered for your revenue growth, not our retainer.
+            </p>
+            <p className="text-base leading-relaxed mb-8 mx-auto" style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'DM Sans',sans-serif", maxWidth: 560 }}>
+              Our clients are breaking through $300K/month ceilings using our proven content advertising strategies combined with precision conversion mechanisms.
+            </p>
+            <button onClick={onOpenPopup} className="btn-lime" style={{ fontSize: "1rem" }}>{CTA_LABEL}</button>
           </div>
         </div>
       </section>
@@ -487,32 +469,26 @@ function ResultsSection() {
   );
 }
 
-// ─── SECTION 6 (DARK): Operator + Meditating Ninja ───────────────────────────
+// ─── SECTION 6 (DARK): Operator ──────────────────────────────────────────────
 
 function OperatorSection({ onOpenPopup }: { onOpenPopup: () => void }) {
   return (
     <>
       <section className="relative py-24 overflow-hidden" style={{ background: "#060d00" }}>
         <StarField />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="reveal flex justify-center lg:justify-start">
-              <img src={IMAGES.feature} alt="Space Ninja Meditating" className="animate-float-slow rounded-2xl"
-                style={{ width: "100%", maxWidth: 560, objectFit: "cover", filter: "drop-shadow(0 0 40px rgba(184,255,0,0.2))" }} />
-            </div>
-            <div className="reveal" style={{ transitionDelay: "120ms" }}>
-              <p className="font-mono-accent text-xs mb-4" style={{ color: "#b8ff00", letterSpacing: "0.2em" }}>OUR IDEAL CLIENT</p>
-              <h2 className="font-display mb-6" style={{ fontSize: "clamp(2.5rem,5vw,4rem)", color: "#fff", lineHeight: 1.05 }}>
-                WE WORK WITH<br /><span style={{ color: "#b8ff00" }}>SERIOUS OPERATORS</span><br />FOR A LIVING
-              </h2>
-              <p className="text-base leading-relaxed mb-5" style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'DM Sans',sans-serif" }}>
-                We get it — you're busy, you're scaling, and you don't have time for agencies that need hand-holding. Everything we ask from you is efficient and easy to execute. We handle the heavy lifting so you can focus on closing deals.
-              </p>
-              <p className="text-base leading-relaxed mb-8" style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'DM Sans',sans-serif" }}>
-                Our clients are breaking through ceilings they thought were permanent — using content advertising strategies their competitors said would "never work."
-              </p>
-              <button onClick={onOpenPopup} className="btn-lime" style={{ fontSize: "1rem" }}>{CTA_LABEL}</button>
-            </div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+          <div className="reveal">
+            <p className="font-mono-accent text-xs mb-4" style={{ color: "#b8ff00", letterSpacing: "0.2em" }}>OUR IDEAL CLIENT</p>
+            <h2 className="font-display mb-6" style={{ fontSize: "clamp(2.5rem,5vw,4rem)", color: "#fff", lineHeight: 1.05 }}>
+              WE WORK WITH<br /><span style={{ color: "#b8ff00" }}>SERIOUS OPERATORS</span><br />FOR A LIVING
+            </h2>
+            <p className="text-base leading-relaxed mb-5 mx-auto" style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'DM Sans',sans-serif", maxWidth: 560 }}>
+              We get it — you're busy, you're scaling, and you don't have time for agencies that need hand-holding. Everything we ask from you is efficient and easy to execute. We handle the heavy lifting so you can focus on closing deals.
+            </p>
+            <p className="text-base leading-relaxed mb-8 mx-auto" style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'DM Sans',sans-serif", maxWidth: 560 }}>
+              Our clients are breaking through ceilings they thought were permanent — using content advertising strategies their competitors said would "never work."
+            </p>
+            <button onClick={onOpenPopup} className="btn-lime" style={{ fontSize: "1rem" }}>{CTA_LABEL}</button>
           </div>
         </div>
       </section>
