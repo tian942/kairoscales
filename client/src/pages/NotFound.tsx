@@ -1,52 +1,26 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { AlertCircle, Home } from "lucide-react";
-import { useLocation } from "wouter";
+import { Arrow, Brand, useKairoGlass } from "@/components/kg";
 
 export default function NotFound() {
-  const [, setLocation] = useLocation();
-
-  const handleGoHome = () => {
-    setLocation("/");
-  };
+  const rootRef = useKairoGlass<HTMLDivElement>();
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100">
-      <Card className="w-full max-w-lg mx-4 shadow-lg border-0 bg-white/80 backdrop-blur-sm">
-        <CardContent className="pt-8 pb-8 text-center">
-          <div className="flex justify-center mb-6">
-            <div className="relative">
-              <div className="absolute inset-0 bg-red-100 rounded-full animate-pulse" />
-              <AlertCircle className="relative h-16 w-16 text-red-500" />
-            </div>
+    <div ref={rootRef} className="kg-page">
+      <div className="kg-nav-wrap">
+        <nav className="kg-nav" aria-label="Main" style={{ width: "min(100%, 760px)" }}>
+          <Brand />
+          <a href="/" className="kg-btn kg-btn-sm kg-nav-cta">Home <Arrow /></a>
+        </nav>
+      </div>
+      <main className="kg-hero" style={{ minHeight: "100vh" }}>
+        <div className="kg-container" style={{ maxWidth: 640 }}>
+          <div className="kg-panel kg-panel-pad" style={{ display: "grid", gap: 18, justifyItems: "center", textAlign: "center" }}>
+            <div className="kg-orb-mini" aria-hidden="true" style={{ width: 92, height: 92, borderRadius: "50%", background: "radial-gradient(circle at 30% 22%, #fff 0 6%, rgba(255,255,255,.64) 7% 20%, transparent 34%), radial-gradient(circle at 68% 70%, rgba(170,242,56,.7), transparent 34%), radial-gradient(circle at 33% 69%, rgba(92,192,231,.6), transparent 38%), linear-gradient(145deg, rgba(255,255,255,.85), rgba(224,245,242,.35))", boxShadow: "inset 0 2px 5px #fff, 0 18px 34px -14px rgba(25,52,58,.35)" }} />
+            <h1 className="kg-display kg-h2">404</h1>
+            <p className="kg-lede">Sorry, the page you are looking for doesn't exist. It may have been moved or deleted.</p>
+            <a href="/" className="kg-btn">Go Home <Arrow /></a>
           </div>
-
-          <h1 className="text-4xl font-bold text-slate-900 mb-2">404</h1>
-
-          <h2 className="text-xl font-semibold text-slate-700 mb-4">
-            Page Not Found
-          </h2>
-
-          <p className="text-slate-600 mb-8 leading-relaxed">
-            Sorry, the page you are looking for doesn't exist.
-            <br />
-            It may have been moved or deleted.
-          </p>
-
-          <div
-            id="not-found-button-group"
-            className="flex flex-col sm:flex-row gap-3 justify-center"
-          >
-            <Button
-              onClick={handleGoHome}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg"
-            >
-              <Home className="w-4 h-4 mr-2" />
-              Go Home
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
+        </div>
+      </main>
     </div>
   );
 }
