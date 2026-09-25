@@ -499,6 +499,36 @@ body.kg {
 .kg-btn-lg { min-height: 62px; padding: 18px 34px; font-size: 1.05rem; }
 .kg-btn-sm { min-height: 48px; padding: 11px 20px; font-size: 0.9rem; }
 
+/* Primary CTA: dark graphite liquid glass so it pops on the white page */
+.kg-btn:not(.kg-btn-quiet) {
+  color: #FFFFFF;
+  border-color: rgba(214, 255, 150, 0.38);
+  background:
+    radial-gradient(circle at 88% 18%, rgba(170, 242, 56, 0.34), transparent 38%),
+    linear-gradient(135deg, rgba(38, 50, 55, 0.96), rgba(16, 22, 26, 0.94));
+  box-shadow:
+    0 16px 36px rgba(18, 25, 29, 0.28),
+    0 0 30px rgba(170, 242, 56, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    inset 0 -10px 22px rgba(170, 242, 56, 0.14);
+}
+.kg-btn:not(.kg-btn-quiet)::before {
+  opacity: 0.75;
+  mix-blend-mode: screen;
+}
+.kg-btn:not(.kg-btn-quiet)::after {
+  background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.32), transparent);
+}
+.kg-btn:not(.kg-btn-quiet) .kg-arrow { color: var(--lime); }
+.kg-btn:not(.kg-btn-quiet):hover {
+  box-shadow:
+    0 20px 44px rgba(18, 25, 29, 0.32),
+    0 0 50px rgba(170, 242, 56, 0.75),
+    inset 0 1px 0 rgba(255, 255, 255, 0.32),
+    inset 0 -10px 22px rgba(170, 242, 56, 0.2);
+}
+.kg-btn:not(.kg-btn-quiet):focus-visible { outline-color: var(--lime); }
+
 /* Secondary: quieter glass with no lime glow */
 .kg-btn-quiet {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(240, 246, 245, 0.45));
