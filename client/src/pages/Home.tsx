@@ -373,9 +373,9 @@ function Vsl() {
     <section className="kg-section-tight" aria-labelledby="vsl-label">
       <div className="kg-container kg-narrow" style={{ maxWidth: 960 }}>
         <div className="kg-divider"><span id="vsl-label">⚠ IMPORTANT: HERE'S EXACTLY WHAT WE INSTALL FOR YOU</span></div>
-        <div className="kg-reveal">
-          <WistiaPlayer mediaId="7i60n49s27" title="Here's exactly what we install for you" />
-        </div>
+      </div>
+      <div className="kg-reveal">
+        <WistiaPlayer mediaId="9gapq45b5x" title="Here's exactly what we install for you" bleed />
       </div>
     </section>
   );

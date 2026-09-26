@@ -104,7 +104,7 @@ export function Lines({ lines, className = "" }: { lines: string[]; className?: 
   );
 }
 
-export function WistiaPlayer({ mediaId, aspect = 16 / 9, title }: { mediaId: string; aspect?: number; title: string }) {
+export function WistiaPlayer({ mediaId, aspect = 16 / 9, title, bleed = false }: { mediaId: string; aspect?: number; title: string; bleed?: boolean }) {
   useEffect(() => {
     const add = (src: string, module: boolean) => {
       if (document.querySelector(`script[src="${src}"]`)) return;
@@ -119,8 +119,8 @@ export function WistiaPlayer({ mediaId, aspect = 16 / 9, title }: { mediaId: str
   }, [mediaId]);
 
   return (
-    <div className="kg-frame">
-      <div className="kg-frame-inner" role="region" aria-label={title}>
+    <div className={bleed ? "kg-bleed" : "kg-frame"}>
+      <div className={bleed ? "kg-bleed-inner" : "kg-frame-inner"} role="region" aria-label={title}>
         <style>{`wistia-player[media-id='${mediaId}']:not(:defined){background:center/contain no-repeat url('https://fast.wistia.com/embed/medias/${mediaId}/swatch');display:block;filter:blur(5px);padding-top:${(100 / aspect).toFixed(3)}%;}`}</style>
         {/* @ts-ignore — Wistia web component */}
         <wistia-player media-id={mediaId} aspect={String(aspect)} />
