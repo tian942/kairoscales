@@ -150,7 +150,37 @@ function vitePluginManusDebugCollector(): Plugin {
   };
 }
 
-const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector()];
+/**
+ * kairo-glass.css/js live in /public (shared with the static pages), so their
+ * filenames never change and browsers keep a stale copy for GitHub Pages'
+ * 10-minute cache. After each build, stamp every HTML reference with a
+ * build version so a deploy is picked up immediately.
+ */
+function kairoGlassCacheBust(): Plugin {
+  const version = Date.now().toString(36);
+  let outDir = "";
+  return {
+    name: "kairo-glass-cache-bust",
+    apply: "build",
+    configResolved(config) {
+      outDir = config.build.outDir;
+    },
+    closeBundle() {
+      const walk = (dir: string): string[] =>
+        fs.readdirSync(dir, { withFileTypes: true }).flatMap((e) => {
+          const full = path.join(dir, e.name);
+          return e.isDirectory() ? walk(full) : e.name.endsWith(".html") ? [full] : [];
+        });
+      for (const file of walk(outDir)) {
+        const html = fs.readFileSync(file, "utf8");
+        const next = html.replace(/(\/kairo-glass\.(?:css|js))(\?v=[\w]+)?(?=["'])/g, `$1?v=${version}`);
+        if (next !== html) fs.writeFileSync(file, next);
+      }
+    },
+  };
+}
+
+const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), kairoGlassCacheBust()];
 
 export default defineConfig({
   plugins,
