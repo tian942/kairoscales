@@ -419,6 +419,16 @@ body.kg {
 }
 .kg-bleed-inner { background: #0E1417; }
 .kg-bleed-inner wistia-player { display: block; width: 100%; }
+/* Desktop: stop growing at 1180px and become a rounded glass slab */
+.kg-bleed { max-width: 1180px; margin: 0 auto; }
+@media (min-width: 1181px) {
+  .kg-bleed {
+    padding: 1px;
+    border-radius: 28px;
+    background: linear-gradient(135deg, rgba(214, 255, 150, 0.9), rgba(255, 255, 255, 0.9) 45%, rgba(170, 242, 56, 0.6));
+  }
+  .kg-bleed-inner { border-radius: 27px; overflow: hidden; }
+}
 .kg-ratio-9x16 { aspect-ratio: 9 / 16; }
 
 /* --------------------------------------------------------------------------
