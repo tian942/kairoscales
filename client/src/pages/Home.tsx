@@ -258,8 +258,8 @@ const CLIP_VIDEOS = [
 ];
 
 const BREAKDOWN_VIDEOS = [
-  { title: "Business breakdown #1", embed: "https://www.youtube.com/embed/wWekXOWO8sg?rel=0" },
-  { title: "Business breakdown #2", embed: "https://www.youtube.com/embed/PvMfYi4Is6E?rel=0" },
+  { title: "Business breakdown #1", id: "wWekXOWO8sg" },
+  { title: "Business breakdown #2", id: "PvMfYi4Is6E" },
 ];
 
 const OPEN_ROLES = [
@@ -722,6 +722,42 @@ function Mission({ onCta }: CtaProps) {
   );
 }
 
+// Thumbnail until clicked, so the page doesn't load every YouTube player at once
+// (too many live iframes crash mobile Safari and it reloads to the top).
+function YouTubeFacade({ id, title }: { id: string; title: string }) {
+  const [playing, setPlaying] = useState(false);
+  if (playing) {
+    return (
+      <iframe
+        src={`https://www.youtube.com/embed/${id}?rel=0&autoplay=1`}
+        title={title}
+        allow="autoplay; fullscreen; picture-in-picture"
+        allowFullScreen
+        style={{ width: "100%", height: "100%", border: 0, display: "block" }}
+      />
+    );
+  }
+  return (
+    <button
+      type="button"
+      onClick={() => setPlaying(true)}
+      aria-label={`Play ${title}`}
+      style={{ position: "relative", width: "100%", height: "100%", padding: 0, border: 0, cursor: "pointer", background: "#000", display: "block" }}
+    >
+      <img
+        src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`}
+        alt=""
+        loading="lazy"
+        style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+      />
+      <svg viewBox="0 0 68 48" width="68" height="48" aria-hidden="true" style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
+        <path d="M66.5 7.7a8.5 8.5 0 0 0-6-6C55.2.3 34 .3 34 .3s-21.2 0-26.5 1.4a8.5 8.5 0 0 0-6 6C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.5 8.5 0 0 0 6 6C12.8 47.7 34 47.7 34 47.7s21.2 0 26.5-1.4a8.5 8.5 0 0 0 6-6C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z" fill="#f00" />
+        <path d="M45 24 27 14v20z" fill="#fff" />
+      </svg>
+    </button>
+  );
+}
+
 function Breakdowns() {
   return (
     <section id="breakdowns" className="kg-section" aria-labelledby="breakdowns-title">
@@ -739,16 +775,9 @@ function Breakdowns() {
 
         <div className="kg-grid-2">
           {BREAKDOWN_VIDEOS.map((v, i) => (
-            <article key={v.embed} className="kg-panel kg-video-card kg-reveal" style={{ padding: 12, transitionDelay: `${i * 80}ms` }}>
+            <article key={v.id} className="kg-panel kg-video-card kg-reveal" style={{ padding: 12, transitionDelay: `${i * 80}ms` }}>
               <div className="kg-proof-media kg-ratio-16x9">
-                <iframe
-                  src={v.embed}
-                  title={v.title}
-                  loading="lazy"
-                  allow="autoplay; fullscreen; picture-in-picture"
-                  allowFullScreen
-                  style={{ width: "100%", height: "100%", border: 0, display: "block" }}
-                />
+                <YouTubeFacade id={v.id} title={v.title} />
               </div>
             </article>
           ))}
