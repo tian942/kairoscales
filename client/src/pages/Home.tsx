@@ -49,6 +49,8 @@ const NAV_LINKS = [
   { label: "Services", href: "#services" },
   { label: "Why Kairo", href: "#why-kairo" },
   { label: "Results", href: "#case-studies" },
+  { label: "Breakdowns", href: "#breakdowns" },
+  { label: "Careers", href: "#careers" },
 ];
 
 const METRICS = [
@@ -253,6 +255,16 @@ const CLIP_VIDEOS = [
   "https://player.vimeo.com/video/1154953302?app_id=122963",
   "https://player.vimeo.com/video/1154953067?app_id=122963",
   "https://player.vimeo.com/video/1154952529?app_id=122963",
+];
+
+const BREAKDOWN_VIDEOS = [
+  { title: "Business breakdown #1", embed: "https://www.youtube.com/embed/wWekXOWO8sg?rel=0" },
+  { title: "Business breakdown #2", embed: "https://www.youtube.com/embed/PvMfYi4Is6E?rel=0" },
+];
+
+const OPEN_ROLES = [
+  { title: "B2B Closer", desc: "Run sales calls and close the opportunities our outbound team creates.", href: "/b2bsales/" },
+  { title: "BDR", desc: "Prospect, open conversations, and book qualified calls for our clients.", href: "/salescareers/" },
 ];
 
 /* ─── Sections ──────────────────────────────────────────────────────────── */
@@ -710,6 +722,71 @@ function Mission({ onCta }: CtaProps) {
   );
 }
 
+function Breakdowns() {
+  return (
+    <section id="breakdowns" className="kg-section" aria-labelledby="breakdowns-title">
+      <div className="kg-container">
+        <div className="kg-section-head kg-reveal">
+          <Eyebrow>REAL STORIES. REAL LESSONS.</Eyebrow>
+          <h2 id="breakdowns-title" className="kg-display kg-h2">
+            BUSINESS <span className="kg-accent">BREAKDOWNS</span>
+          </h2>
+          <p className="kg-lede">
+            We break down real businesses we've helped scale by building cold outbound teams, and pass down the
+            lessons so more business owners can do the same.
+          </p>
+        </div>
+
+        <div className="kg-grid-2">
+          {BREAKDOWN_VIDEOS.map((v, i) => (
+            <article key={v.embed} className="kg-panel kg-video-card kg-reveal" style={{ padding: 12, transitionDelay: `${i * 80}ms` }}>
+              <div className="kg-proof-media kg-ratio-16x9">
+                <iframe
+                  src={v.embed}
+                  title={v.title}
+                  loading="lazy"
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  allowFullScreen
+                  style={{ width: "100%", height: "100%", border: 0, display: "block" }}
+                />
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Careers() {
+  return (
+    <section id="careers" className="kg-section" aria-labelledby="careers-title">
+      <div className="kg-container" style={{ maxWidth: 1040 }}>
+        <div className="kg-section-head kg-reveal">
+          <Eyebrow>CAREERS</Eyebrow>
+          <h2 id="careers-title" className="kg-display kg-h2">
+            WANT A <span className="kg-accent">JOB?</span>
+          </h2>
+          <p className="kg-lede">See our open opportunities and apply to work with a team of stallions.</p>
+        </div>
+
+        <div className="kg-grid-2">
+          {OPEN_ROLES.map((r, i) => (
+            <article key={r.href} className="kg-panel kg-panel-pad kg-feature kg-reveal" style={{ transitionDelay: `${i * 80}ms` }}>
+              <span className="kg-feature-num">OPEN ROLE</span>
+              <h3 className="kg-display kg-h3">{r.title.toUpperCase()}</h3>
+              <p>{r.desc}</p>
+              <div>
+                <a href={r.href} className="kg-btn">See Role &amp; Apply <Arrow /></a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ─── Page ──────────────────────────────────────────────────────────────── */
 
 export default function Home() {
@@ -732,7 +809,9 @@ export default function Home() {
         <Stuck />
         <IdealClient onCta={openPopup} />
         <WallOfSuccess />
+        <Breakdowns />
         <Mission onCta={openPopup} />
+        <Careers />
       </main>
       <Footer onBook={openPopup} />
     </div>
