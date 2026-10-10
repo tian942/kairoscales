@@ -5,7 +5,7 @@
  * Every primary CTA opens LeadPopup (email → Calendly).
  */
 
-import { useCallback, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import { LeadPopup } from "@/components/LeadPopup";
 import {
   Arrow,
@@ -644,14 +644,7 @@ function WallOfSuccess() {
             {FEATURED_VIDEOS.map((v, i) => (
               <article key={v.label} className="kg-panel kg-video-card kg-reveal" style={{ padding: 12, transitionDelay: `${i * 80}ms` }}>
                 <div className="kg-proof-media kg-ratio-16x9">
-                  <iframe
-                    src={v.embed}
-                    title={v.label}
-                    loading="lazy"
-                    allow="autoplay; fullscreen; picture-in-picture"
-                    allowFullScreen
-                    style={{ width: "100%", height: "100%", border: 0, display: "block" }}
-                  />
+                  <LazyEmbed src={v.embed} title={v.label} />
                 </div>
                 <div style={{ display: "grid", gap: 6, padding: "4px 10px 12px" }}>
                   <h3>{v.label}</h3>
@@ -667,7 +660,7 @@ function WallOfSuccess() {
               {CLIP_VIDEOS.map((url, i) => (
                 <div key={url} className="kg-frame">
                   <div className="kg-frame-inner kg-ratio-9x16">
-                    <iframe src={url} title={`Client clip ${i + 1}`} loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowFullScreen />
+                    <LazyEmbed src={url} title={`Client clip ${i + 1}`} />
                   </div>
                 </div>
               ))}
@@ -719,6 +712,33 @@ function Mission({ onCta }: CtaProps) {
         </div>
       </div>
     </section>
+  );
+}
+
+// Mounts the iframe only while it's near the viewport and unmounts it once scrolled
+// away, so mobile Safari never holds more than a few video players at once.
+function LazyEmbed({ src, title, style }: { src: string; title: string; style?: CSSProperties }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [near, setNear] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(([entry]) => setNear(entry.isIntersecting), { rootMargin: "400px 0px" });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+  return (
+    <div ref={ref} style={{ width: "100%", height: "100%", background: "#000" }}>
+      {near && (
+        <iframe
+          src={src}
+          title={title}
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowFullScreen
+          style={{ width: "100%", height: "100%", border: 0, display: "block", ...style }}
+        />
+      )}
+    </div>
   );
 }
 

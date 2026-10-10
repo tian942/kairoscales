@@ -1561,10 +1561,18 @@ body.kg {
   .kg-brand { min-height: 44px; }
   .kg-pill { white-space: normal; text-align: center; line-height: 1.4; }
   .kg-legal { font-size: 0.85rem; }
-  .kg-panel, .kg-card, .kg-float, .kg-frame {
+  .kg-float {
     -webkit-backdrop-filter: blur(12px) saturate(135%);
     backdrop-filter: blur(12px) saturate(135%);
   }
+  /* No backdrop blur on the many page panels: stacked blur layers over video
+     iframes exhaust mobile Safari's memory and it reloads the tab to the top. */
+  .kg-panel, .kg-card, .kg-frame {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+  .kg-panel { background: linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(236, 249, 246, 0.8)); }
+  .kg-card, .kg-frame { background: rgba(255, 255, 255, 0.86); }
   .kg-ambient::before, .kg-ambient::after { filter: blur(50px); }
   .kg-panel-lime::before { filter: blur(14px); }
 }
