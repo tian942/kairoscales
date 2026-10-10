@@ -66,6 +66,24 @@ src="https://www.facebook.com/tr?id=1616538166511115&ev=PageView&noscript=1"
   .hl { color: var(--ink); font-weight: 600; background: linear-gradient(transparent 56%, rgba(170,242,56,.55) 56%, rgba(214,255,150,.6) 92%, transparent 92%); padding: 0 2px; border-radius: 3px; }
   .sc-footer { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 22px 28px; }
   .sc-footer span { font-size: 0.85rem; color: var(--muted); }
+  .sc-partnership { display:flex; align-items:center; gap:16px; flex:none; }
+  .sc-partner-divider { color:var(--muted); font-size:1.5rem; font-weight:500; }
+  .sc-ricfit { display:flex; align-items:center; gap:9px; color:var(--ink); text-decoration:none; }
+  .sc-ricfit img { width:52px; height:34px; object-fit:contain; mix-blend-mode:multiply; }
+  .sc-ricfit span { font-size:1.1rem; font-weight:800; letter-spacing:.02em; }
+  @media(max-width:1050px) { .sc-partnership + .kg-nav-links { display:none; } }
+  @media(max-width:600px) {
+    .sc-partnership { gap:9px; }
+    .sc-partnership .kg-brand { gap:6px; }
+    .sc-partnership .kg-brand img { width:30px; height:30px; }
+    .sc-partnership .kg-brand-name { font-size:.85rem; }
+    .sc-partnership .kg-brand-sub { display:none; }
+    .sc-ricfit { gap:5px; }
+    .sc-ricfit img { width:38px; height:28px; }
+    .sc-ricfit span { font-size:.8rem; }
+    .sc-partner-divider { font-size:1.1rem; }
+    .sc-partnership ~ .kg-nav-cta { padding:10px 12px; font-size:.8rem; }
+  }
 </style>
 </head>
 <body class="kg" data-kg-auto>
@@ -76,10 +94,17 @@ src="https://www.facebook.com/tr?id=1616538166511115&ev=PageView&noscript=1"
 <!-- ============ NAV ============ -->
 <div class="kg-nav-wrap">
   <nav class="kg-nav" aria-label="Main">
+    <div class="sc-partnership" aria-label="Kairo and RicFit partnership">
     <a href="#top" class="kg-brand" aria-label="Kairo — back to top">
       <img src="/images/logo-mark.png" alt="" width="38" height="38">
       <span class="kg-brand-text"><span class="kg-brand-name">KAIRO</span><span class="kg-brand-sub">MARKETING</span></span>
     </a>
+      <span class="sc-partner-divider" aria-hidden="true">×</span>
+      <a href="#top" class="sc-ricfit" aria-label="RicFit — back to top">
+        <img src="/images/ricfit-logo.png" alt="RicFit logo" width="52" height="34">
+        <span>RICFIT</span>
+      </a>
+    </div>
     <div class="kg-nav-links">
       <span class="kg-nav-bubble" aria-hidden="true"></span>
       <a href="#what-you-get" class="kg-nav-item">What You Get</a>
