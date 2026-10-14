@@ -26,8 +26,9 @@ src="https://www.facebook.com/tr?id=1616538166511115&ev=PageView&noscript=1"
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://www.loom.com">
-<link rel="preconnect" href="https://cdn.loom.com" crossorigin>
+<link rel="preconnect" href="https://fast.wistia.com">
+<script src="https://fast.wistia.com/player.js" async></script>
+<script src="https://fast.wistia.com/embed/2qew5cq3kw.js" async type="module"></script>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/kairo-glass.css">
 <meta name="theme-color" content="#FFFFFF">
@@ -37,6 +38,13 @@ src="https://www.facebook.com/tr?id=1616538166511115&ev=PageView&noscript=1"
   .sc-hero h1 { font-size: clamp(2.1rem, 4.6vw, 4rem); }
   .sc-hero h1 .kg-h1-sub { color: var(--ink); -webkit-text-fill-color: var(--ink); background: none; filter: none; animation: none; font-size: clamp(1.35rem, 2.6vw, 2.2rem); max-width: 820px; margin-inline: auto; }
   .sc-video { width: 100%; max-width: 720px; }
+  .sc-video wistia-player { display: block; width: 100%; }
+  wistia-player[media-id='2qew5cq3kw']:not(:defined) {
+    background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/2qew5cq3kw/swatch');
+    display: block;
+    filter: blur(5px);
+    padding-top: 56.25%;
+  }
   .sc-narrow { max-width: 860px; }
   .sc-quote {
     padding: 16px 22px;
@@ -123,15 +131,10 @@ src="https://www.facebook.com/tr?id=1616538166511115&ev=PageView&noscript=1"
     <h1 id="sc-title" class="kg-display"><span class="kg-accent">Apply to Get a Guaranteed Remote Sales Job Within 5 Days and Keep Chasing Your Soccer Dream.</span></h1>
     <p class="kg-lede" style="max-width:800px">Learn sales from scratch with hands-on training and team support and no sales experience needed. The job guarantee applies once you pass screening and meet our entry requirements.</p>
 
-    <!-- Loom VSL embed -->
+    <!-- Wistia VSL embed -->
     <div class="sc-video kg-frame">
       <div class="kg-frame-inner kg-ratio-16x9">
-        <iframe src="https://www.loom.com/embed/140fa6730d3942f49231d9b5e46e37f3"
-                loading="eager"
-                webkitallowfullscreen
-                mozallowfullscreen
-                allowfullscreen
-                title="Kairo — Introduction to the Sales Opportunity"></iframe>
+        <wistia-player media-id="2qew5cq3kw" aspect="1.7777777777777777"></wistia-player>
       </div>
     </div>
 
