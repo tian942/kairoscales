@@ -51,6 +51,7 @@ const NAV_LINKS = [
   { label: "Results", href: "#case-studies" },
   { label: "Breakdowns", href: "#breakdowns" },
   { label: "Careers", href: "#careers" },
+  { label: "FREE COLD SALES KIT", href: "/coldsaleskit/" },
 ];
 
 const METRICS = [
@@ -861,6 +862,18 @@ export default function Home() {
         <Breakdowns />
         <Mission onCta={openPopup} />
         <Careers />
+        <section className="kg-section-tight kg-kit-resource" aria-labelledby="free-cold-sales-kit">
+          <div className="kg-container">
+            <a className="kg-kit-card" href="/coldsaleskit/">
+              <div>
+                <span className="kg-kit-badge">FREE RESOURCE</span>
+                <h2 id="free-cold-sales-kit">FREE COLD SALES KIT</h2>
+                <p>Build your front-end offer. Review your sales calls. Get a clear plan to improve.</p>
+              </div>
+              <span className="kg-kit-action">Get the free kit <span aria-hidden="true">↗</span></span>
+            </a>
+          </div>
+        </section>
       </main>
       <Footer onBook={openPopup} />
     </div>

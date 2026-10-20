@@ -56,19 +56,44 @@ export function GlassNav({
   onCta?: () => void;
   ctaHref?: string;
 }) {
+  const menuRef = useRef<HTMLDetailsElement>(null);
+  useEffect(() => {
+    const menu = menuRef.current;
+    if (!menu) return;
+    const closeOutside = (event: PointerEvent) => {
+      if (menu.open && event.target instanceof Node && !menu.contains(event.target)) menu.open = false;
+    };
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape" && menu.open) {
+        menu.open = false;
+        menu.querySelector("summary")?.focus();
+      }
+    };
+    document.addEventListener("pointerdown", closeOutside);
+    document.addEventListener("keydown", closeOnEscape);
+    return () => {
+      document.removeEventListener("pointerdown", closeOutside);
+      document.removeEventListener("keydown", closeOnEscape);
+    };
+  }, []);
   return (
     <div className="kg-nav-wrap">
       <nav className="kg-nav" aria-label="Main">
         <Brand />
         {links.length > 0 && (
-          <div className="kg-nav-links">
-            <span className="kg-nav-bubble" aria-hidden="true" />
-            {links.map((l) => (
-              <a key={l.href} href={l.href} className="kg-nav-item">
-                {l.label}
-              </a>
-            ))}
-          </div>
+          <details ref={menuRef} className="kg-nav-dropdown">
+            <summary className="kg-menu-toggle">
+              Menu <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="m4 6 4 4 4-4" fill="none" stroke="currentColor" strokeWidth="1.6" /></svg>
+            </summary>
+            <div className="kg-menu-panel">
+              {links.map((l) => (
+                <a key={l.href} href={l.href} className={l.href === "/coldsaleskit/" ? "kg-menu-link kg-menu-free" : "kg-menu-link"}
+                  onClick={() => { if (menuRef.current) menuRef.current.open = false; }}>
+                  {l.label}<span aria-hidden="true">{l.href.startsWith("#") ? "↓" : "↗"}</span>
+                </a>
+              ))}
+            </div>
+          </details>
         )}
         {ctaHref ? (
           <a href={ctaHref} className="kg-btn kg-btn-sm kg-nav-cta">
@@ -136,6 +161,7 @@ export function Footer({ onBook, sameSite = true }: { onBook: () => void; sameSi
     { label: "Services", href: `${base}#services` },
     { label: "Why Kairo", href: `${base}#why-kairo` },
     { label: "Results", href: `${base}#case-studies` },
+    { label: "FREE COLD SALES KIT", href: "/coldsaleskit/" },
   ];
   return (
     <footer className="kg-footer">
