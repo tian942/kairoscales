@@ -24,8 +24,9 @@ src="https://www.facebook.com/tr?id=1616538166511115&ev=PageView&noscript=1"
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://www.loom.com">
-<link rel="preconnect" href="https://cdn.loom.com" crossorigin>
+<link rel="preconnect" href="https://fast.wistia.com">
+<script src="https://fast.wistia.com/player.js" async></script>
+<script src="https://fast.wistia.com/embed/4pcz9h5sk3.js" async type="module"></script>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/kairo-glass.css">
 <meta name="theme-color" content="#FFFFFF">
@@ -35,6 +36,14 @@ src="https://www.facebook.com/tr?id=1616538166511115&ev=PageView&noscript=1"
   .sc-hero h1 { font-size: clamp(3rem, 7vw, 6rem); }
   .sc-hero h1 .kg-h1-sub { color: var(--ink); -webkit-text-fill-color: var(--ink); background: none; filter: none; animation: none; font-size: clamp(1.35rem, 2.6vw, 2.2rem); max-width: 820px; margin-inline: auto; }
   .sc-video { width: 100%; max-width: 720px; }
+  .sc-video wistia-player { display: block; width: 100%; height: 100%; }
+  wistia-player[media-id='4pcz9h5sk3']:not(:defined) {
+    background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/4pcz9h5sk3/swatch');
+    display: block;
+    filter: blur(5px);
+    height: auto;
+    padding-top: 56.25%;
+  }
   .sc-narrow { max-width: 860px; }
   .sc-quote {
     padding: 16px 22px;
@@ -98,15 +107,10 @@ src="https://www.facebook.com/tr?id=1616538166511115&ev=PageView&noscript=1"
       <span class="kg-h1-sub">Make Serious Money, Work From Anywhere, And Build A Skill You'll Use For The Rest Of Your Life.</span>
     </h1>
 
-    <!-- Loom VSL embed -->
+    <!-- Wistia VSL embed -->
     <div class="sc-video kg-frame">
       <div class="kg-frame-inner kg-ratio-16x9">
-        <iframe src="https://www.loom.com/embed/140fa6730d3942f49231d9b5e46e37f3"
-                loading="eager"
-                webkitallowfullscreen
-                mozallowfullscreen
-                allowfullscreen
-                title="Kairo — Watch This First"></iframe>
+        <wistia-player media-id="4pcz9h5sk3" aspect="1.7777777777777777" title="Kairo — Watch This First"></wistia-player>
       </div>
     </div>
 
